@@ -1,0 +1,25 @@
+{
+  "name": "@repo/ui",
+  "version": "1.0.0",
+  "type": "module",
+  "module": "index.ts",
+  "main": "index.ts",
+  "exports": {
+    ".": {
+      "types": "./index.ts",
+      "svelte": "./index.ts"
+    }
+  },
+  "scripts": {
+    "lint": "eslint ."
+  },
+  "dependencies": {
+    "bits-ui": "^0.21.13"
+  },
+  "devDependencies": {
+    "@repo/eslint-config": "*",
+    "phosphor-svelte": "^2.0.1",
+    "svelte": "^5.1.9",
+    "sveltekit-superforms": "^2.17.0"
+  }
+}
