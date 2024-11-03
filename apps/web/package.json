@@ -11,11 +11,18 @@
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^4.16.8",
     "@astrojs/check": "^0.9.4",
+    "@astrojs/svelte": "^5.7.2",
+    "@repo/ui": "*",
+    "@sveltejs/vite-plugin-svelte": "^4.0.0",
+    "astro": "^4.16.8",
+    "svelte": "^5.1.9",
     "typescript": "^5.6.3"
   },
   "devDependencies": {
     "@repo/eslint-config": "*"
+  },
+  "overrides": {
+    "@sveltejs/vite-plugin-svelte": "^4.0.0"
   }
 }
