@@ -15,6 +15,8 @@
     "@astrojs/svelte": "^5.7.2",
     "@repo/ui": "*",
     "@sveltejs/vite-plugin-svelte": "^4.0.0",
+    "@typescript-eslint/eslint-plugin": "^8.12.2",
+    "@typescript-eslint/parser": "^8.12.2",
     "astro": "^4.16.8",
     "svelte": "^5.1.9",
     "typescript": "^5.6.3"

@@ -16,7 +16,7 @@
     "prettier": "^3.2.5",
     "prettier-plugin-svelte": "^3.2.7",
     "turbo": "latest",
-    "typescript": "5.5.4"
+    "typescript": "^5.5.4"
   },
   "workspaces": [
     "apps/*",
