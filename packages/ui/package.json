@@ -21,6 +21,7 @@
   },
   "devDependencies": {
     "@repo/eslint-config": "*",
+    "@zerodevx/svelte-toast": "^0.9.6",
     "phosphor-svelte": "^2.0.1",
     "svelte": "^5.1.9",
     "sveltekit-superforms": "^2.17.0"

@@ -2,7 +2,7 @@
 <script lang='ts'>
 	import { Dialog } from 'bits-ui';
 	import { fade } from 'svelte/transition';
-	import { flyAndScale } from '$lib/transitions';
+	import { flyAndScale } from '../../lib/transitions';
 	import { X } from 'phosphor-svelte';
 
 	interface Props {
