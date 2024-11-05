@@ -13,3 +13,10 @@ pnpm-lock.yaml
 pnpm-workspace.yaml
 package-lock.json
 yarn.lock
+
+dist
+.github
+.changeset
+yarn.yaml
+.turbo
+.vercel

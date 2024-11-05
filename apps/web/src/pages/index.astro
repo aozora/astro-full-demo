@@ -1,14 +1,26 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Card from '../components/Card.astro';
+import Layout from '@/layouts/Layout.astro';
+import Card from '@/components/Card.astro';
+import BlocksRenderer from '@/components/BlocksRenderer/BlocksRenderer.svelte'
 import {Main} from '@repo/ui';
-import {executeQuery} from "../../lib/datocms";
-import {homeQuery} from "../../queries/home.query";
+import {executeQuery} from "@/lib/datocms";
+import {homeQuery} from "@/queries/home.query";
+import { Seo } from '@datocms/astro/Seo';
 
-const {page} = await executeQuery(homeQuery)
+interface QueryResult {
+  page: {
+    seo: any
+    modules: Array<any>
+  }
+}
+
+const result = await executeQuery(homeQuery);
+const {page}: QueryResult = result;
 ---
 
 <Layout title="Welcome to Astro.">
+  <Seo data={[...page.seo]} />
+
   <Main>
     <svg
         class="astro-a"
@@ -65,6 +77,8 @@ const {page} = await executeQuery(homeQuery)
           body="Come say hi to our amazing Discord community. ❤️"
       />
     </ul>
+
+    <BlocksRenderer blocks={page.modules} />
   </Main>
 </Layout>
 

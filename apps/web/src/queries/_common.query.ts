@@ -1,4 +1,4 @@
-import { globalSeoFragment, metaTagsFragment } from './__fragments';
+import { globalSeoFragment, metaTagsFragment } from './__fragments.ts';
 
 export const commonQuery = `
   query Layout {

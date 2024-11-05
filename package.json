@@ -14,6 +14,7 @@
   "packageManager": "npm@10.0.0",
   "devDependencies": {
     "prettier": "^3.2.5",
+    "prettier-plugin-astro": "^0.14.1",
     "prettier-plugin-svelte": "^3.2.7",
     "turbo": "latest",
     "typescript": "^5.5.4"
