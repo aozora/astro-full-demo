@@ -21,5 +21,10 @@
   "workspaces": [
     "apps/*",
     "packages/*"
-  ]
+  ],
+  "dependencies": {
+    "@astrojs/sitemap": "^3.2.1",
+    "@datocms/astro": "^0.3.5",
+    "@datocms/cda-client": "^0.2.2"
+  }
 }
