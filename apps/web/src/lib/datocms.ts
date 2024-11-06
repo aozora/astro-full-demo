@@ -1,39 +1,47 @@
 import { ApiError, executeQuery as libExecuteQuery } from '@datocms/cda-client';
 
-export async function executeQuery(
+interface QueryOptions {
+	token: string;
+	variables?: any;
+	includeDrafts: boolean;
+	environment: string;
+}
+
+export async function executeDatoCmsQuery(
 	query: string,
 	options?: any,
 	variables?: any,
 	preview: boolean = false
 ) {
+	const environment = import.meta.env.DATOCMS_ENVIRONMENT || 'main';
+
 	try {
-		const result = await libExecuteQuery(query, {
+		const queryOptions: QueryOptions = {
 			...options,
 			token: import.meta.env.DATOCMS_API_TOKEN,
 			variables,
 			includeDrafts: preview,
-			environment: import.meta.env.DATOCMS_ENVIRONMENT
-				? import.meta.env.DATOCMS_ENVIRONMENT
-				: 'main'
-		});
+			environment
+		};
 
-		return result;
+		return await libExecuteQuery(query, queryOptions);
 	} catch (e) {
-		if (e instanceof ApiError) {
-			// Information about the failed request
-			console.error(e.query);
-			console.error(e.options);
+		handleQueryError(e);
+		throw e;
+	}
+}
 
-			// Information about the response
-			console.log(e.response.status);
-			console.log(e.response.statusText);
-			console.log(e.response.headers);
-			console.log(e.response.body);
-		} else {
-			// Handle other types of errors
-			console.error(e);
-			throw e;
+function handleQueryError(e: any) {
+	if (e instanceof ApiError) {
+		if (e.query) {
+			console.log({ query: e.query });
 		}
+		if (e.options) {
+			console.error(e.options);
+		}
+		// Log additional error information if needed
+	} else {
+		console.error(e);
 	}
 }
 

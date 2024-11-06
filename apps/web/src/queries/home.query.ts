@@ -14,6 +14,7 @@ query HomeQuery {
       ${heroRecord}
       ${quoteRecord}
       ${textAndMediumRecord}
+    }
   }
 }
 
