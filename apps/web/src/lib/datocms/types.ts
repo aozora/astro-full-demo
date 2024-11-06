@@ -1,3 +1,5 @@
+import type { SeoOrFaviconTag } from '@datocms/astro/Seo';
+
 export type ResponsiveImage = {
 	responsiveImage: {
 		srcSet: string;
@@ -48,12 +50,12 @@ export type YouTubeVideo = {
 // 	};
 // };
 
-// export type GlobalSeo = {
-//   siteName?: string;
-//   titleSuffix?: string;
-//   twitterAccount?: string;
-//   facebookPageUrl?: string;
-// };
+export type GlobalSeo = {
+	siteName?: string;
+	titleSuffix?: string;
+	twitterAccount?: string;
+	facebookPageUrl?: string;
+};
 
 // export type SeoMetaAttribute = {
 //   name?: string;
@@ -74,6 +76,11 @@ export type YouTubeVideo = {
 //   attributes: SeoMetaAttribute | null;
 // };
 
+export interface SiteMetaTags {
+	favicon: SeoOrFaviconTag[];
+	globalSeo: SeoOrFaviconTag[];
+}
+
 // export type Site = {
 //   favicon: Array<SeoMetaTagType>;
 //   globalSeo: GlobalSeo;
@@ -91,17 +98,12 @@ export type PageLink = {
 	_modelApiKey: string;
 };
 
-export type Menu = {
-	menuItems: Array<MenuItem>;
-};
+export interface Menu {
+	items: Array<MenuItem>;
+}
 
-export type MenuItem = {
+export interface MenuItem {
 	id: string;
 	title: string;
-	url: string;
-};
-
-// export type CommonData = {
-//   site: Site;
-//   menu: Menu;
-// };
+	path: string;
+}

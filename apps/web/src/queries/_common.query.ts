@@ -1,7 +1,7 @@
 import { globalSeoFragment, metaTagsFragment } from './__fragments.ts';
 
 export const commonQuery = `
-  query Layout {
+  query Common {
     site: _site {
       favicon: faviconMetaTags {
         ...metaTagsFragment
@@ -12,10 +12,10 @@ export const commonQuery = `
     }
     
     menu {
-      menuItems {
+      items {
         id
         title
-        url
+        path
       }
     }   
 
