@@ -4,9 +4,12 @@ export const heroRecord = `
   id
   title
   picture {
-    responsiveImage(imgixParams: {fm: webp, auto: compress}) {
+    responsiveImage(imgixParams: {fm: webp, w: "1440"}) {
       ...responsiveImageFragment
     }
+    alt
+    height
+    width
   }
   videoYoutube {
     provider

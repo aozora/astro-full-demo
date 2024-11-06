@@ -16,6 +16,7 @@
     "@astrojs/sitemap": "^3.2.1",
     "@datocms/astro": "^0.3.5",
     "@datocms/cda-client": "^0.2.2",
+    "@datocms/svelte": "^4.0.0",
     "@repo/ui": "*",
     "@sveltejs/vite-plugin-svelte": "^4.0.0",
     "@typescript-eslint/eslint-plugin": "^8.12.2",
