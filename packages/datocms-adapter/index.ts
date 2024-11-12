@@ -1,6 +1,6 @@
 import { ApiError, executeQuery as libExecuteQuery } from '@datocms/cda-client';
 
-interface QueryOptions {
+export interface QueryOptions {
 	token: string;
 	variables?: any;
 	includeDrafts: boolean;

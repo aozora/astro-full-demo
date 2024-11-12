@@ -8,8 +8,12 @@
 * blog
   * landing page with paginated post list
   * post dynamic page
-* e-commerce (strapi)
+* e-commerce (shopify / strapi)
 
+* CMS adapters:
+  * DatoCMS @repo/datocms-adapter
+  * Sanity  @repo/sanity-adapter
+  * Strapi  @repo/strapi-adapter
 
 ## mobile (tauri app)
 

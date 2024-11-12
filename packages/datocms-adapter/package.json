@@ -1,0 +1,27 @@
+{
+  "name": "@repo/datocms-adapter",
+  "version": "1.0.0",
+  "type": "module",
+  "module": "index.ts",
+  "main": "index.ts",
+  "exports": {
+    ".": {
+      "types": "./index.ts",
+      "svelte": "./index.ts"
+    }
+  },
+  "scripts": {
+    "lint": "eslint ."
+  },
+  "dependencies": {
+    "@datocms/astro": "^0.3.5",
+    "@datocms/cda-client": "^0.2.2",
+    "@datocms/svelte": "^4.0.0",
+    "@typescript-eslint/eslint-plugin": "^8.12.2",
+    "@typescript-eslint/parser": "^8.12.2",
+    "typescript": "^5.6.3"
+  },
+  "devDependencies": {
+    "@repo/eslint-config": "*"
+  }
+}

@@ -18,7 +18,7 @@ const { page }: QueryResult = result;
 
 <Layout seo={[...page.seo]}>
 	<Main>
-		<BlocksRenderer blocks={page.modules} />
+		<BlocksRenderer blocks={page.modules} client:load />
 	</Main>
 </Layout>
 
