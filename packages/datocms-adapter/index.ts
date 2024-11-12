@@ -7,7 +7,7 @@ export interface QueryOptions {
 	environment: string;
 }
 
-export async function executeDatoCmsQuery(
+export async function executeCmsQuery(
 	query: string,
 	options?: any,
 	variables?: any,
