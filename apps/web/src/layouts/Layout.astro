@@ -2,26 +2,33 @@
 import { type SeoOrFaviconTag } from '@datocms/astro/Seo';
 import { Seo } from '@datocms/astro/Seo';
 import { commonQuery } from '@/queries/_common.query';
-import { executeDatoCmsQuery } from '@/lib/datocms';
-import type { Menu, SiteMetaTags } from '../lib/datocms/types';
+// import { executeDatoCmsQuery } from '@/lib/datocms';
+// import type { Menu, SiteMetaTags } from '../lib/datocms/types';
 import Header from '@/components/Header.svelte';
 import Footer from '@/components/Footer.svelte';
 import '@/styles/app.scss';
+import { executeCmsQuery } from '@repo/sanity-adapter';
+import type { SanityDocument } from '@sanity/client';
 
 interface Props {
 	title?: string;
 	seo?: SeoOrFaviconTag[];
 }
 
-interface CommonQueryResult {
-	site: SiteMetaTags;
-	menu: Menu;
-}
+// interface CommonQueryResult {
+// 	site: SiteMetaTags;
+// 	menu: Menu;
+// }
 
 const { title, seo } = Astro.props;
 
-const result: CommonQueryResult = await executeDatoCmsQuery(commonQuery);
-const { site, menu }: CommonQueryResult = result;
+const { data } = await executeCmsQuery<SanityDocument[]>({
+	query: `*[_type == "site"]{ _id, title, seo, menu  }`
+});
+
+// const result: CommonQueryResult = await executeDatoCmsQuery(commonQuery);
+// const { site, menu }: CommonQueryResult = result;
+const { site, menu } = data;
 ---
 
 <!doctype html>

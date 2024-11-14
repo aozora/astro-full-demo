@@ -2,18 +2,47 @@
 import Layout from '@/layouts/Layout.astro';
 import BlocksRenderer from '@/components/BlocksRenderer/BlocksRenderer.svelte';
 import { Main } from '@repo/ui';
-import { executeDatoCmsQuery } from '../lib/datocms';
-import { homeQuery } from '@/queries/home.query';
+// import { executeDatoCmsQuery } from '../lib/datocms';
+// import { homeQuery } from '@/queries/home.query';
+import { executeCmsQuery } from '@repo/sanity-adapter';
+import { type SanityDocument } from '@sanity/client';
 
-interface QueryResult {
-	page: {
-		seo: any;
-		modules: Array<any>;
-	};
-}
+// interface QueryResult {
+// 	page: {
+// 		seo: any;
+// 		modules: Array<any>;
+// 	};
+// }
+//
+// const result = await executeDatoCmsQuery(homeQuery);
 
-const result = await executeDatoCmsQuery(homeQuery);
-const { page }: QueryResult = result;
+const { data } = await executeCmsQuery<SanityDocument[]>({
+	// query: `*[_type == "home"]{ _id, seo, title, slug, modules }`
+	query: `
+	*[_type == "home"]{ _id, seo, title, slug,   
+modules[]{
+    _type == "hero" => {
+      _type,
+      title,
+      picture,
+      videoYoutube
+    },
+  _type == "quote" => {
+      _type,
+      quote
+    },
+  _type == "textAndMedium" => {
+      _type,
+      text,
+        alignment,
+        picture
+    }
+  },
+}`
+});
+
+// const { page }: QueryResult = result;
+const { page } = data;
 ---
 
 <Layout seo={[...page.seo]}>

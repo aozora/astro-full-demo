@@ -7,7 +7,7 @@
 
 {#if blocks}
 	{#each blocks as block}
-		{#if block._modelApiKey}
+		{#if block._type}
 			<RenderBlock block={block}/>
 		{/if}
 	{/each}
