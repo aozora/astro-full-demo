@@ -1,24 +1,3 @@
 {
-	"compilerOptions": {
-		"allowJs": true,
-		"checkJs": true,
-		"esModuleInterop": true,
-		"forceConsistentCasingInFileNames": true,
-		"resolveJsonModule": true,
-		"skipLibCheck": true,
-		"sourceMap": true,
-		"strict": true,
-
-		"verbatimModuleSyntax": true,
-		"isolatedModules": true,
-		"lib": [
-			"esnext",
-			"DOM",
-			"DOM.Iterable"
-		],
-		"moduleResolution": "bundler",
-		"module": "esnext",
-		"noEmit": true,
-		"target": "esnext"
-	}
+	"extends": "@repo/typescript-config/base.json"
 }

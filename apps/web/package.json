@@ -16,6 +16,7 @@
     "@astrojs/sitemap": "^3.2.1",
     "@repo/sanity-adapter": "*",
     "@repo/ui": "*",
+    "@sanity/client": "^6.22.4",
     "@sveltejs/vite-plugin-svelte": "^4.0.0",
     "@typescript-eslint/eslint-plugin": "^8.12.2",
     "@typescript-eslint/parser": "^8.12.2",
