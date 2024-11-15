@@ -30,7 +30,7 @@ export async function executeCmsQuery<QueryResponse>({
 }: {
 	query: string;
 	params?: QueryParams;
-}) {
+}): Promise<object> {
 	const { result } = await sanityClient.fetch<QueryResponse>(query, params ?? {}, {
 		filterResponse: false
 	});
