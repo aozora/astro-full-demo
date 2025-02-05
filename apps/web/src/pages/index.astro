@@ -2,8 +2,8 @@
 import Layout from '@/layouts/Layout.astro';
 import BlocksRenderer from '@/components/BlocksRenderer/BlocksRenderer.svelte';
 import { Main } from '@repo/ui';
-import { executeDatoCmsQuery } from '../lib/datocms';
 import { homeQuery } from '@/queries/home.query';
+import { executeCmsQuery } from '@repo/datocms-adapter';
 
 interface QueryResult {
 	page: {
@@ -12,7 +12,7 @@ interface QueryResult {
 	};
 }
 
-const result = await executeDatoCmsQuery(homeQuery);
+const result = await executeCmsQuery(homeQuery);
 const { page }: QueryResult = result;
 ---
 
