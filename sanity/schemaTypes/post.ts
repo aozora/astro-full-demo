@@ -26,7 +26,7 @@ export default defineType({
       to: {type: 'author'},
     }),
     defineField({
-      name: 'mainImage',
+      name: 'cover',
       title: 'Main image',
       type: 'image',
       options: {
@@ -55,7 +55,7 @@ export default defineType({
     select: {
       title: 'title',
       author: 'author.name',
-      media: 'mainImage',
+      media: 'cover',
     },
     prepare(selection) {
       const {author} = selection

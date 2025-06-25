@@ -21,7 +21,7 @@ const post = await getPost(slug);
 <Layout title={post.title!}>
   <section class="post">
     {
-      post.mainImage ? (
+      post.cover ? (
         <img
           class="post__cover"
           src={urlFor(post.mainImage).url()}

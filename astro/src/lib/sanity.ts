@@ -24,6 +24,6 @@ export interface Post {
   title?: string;
   slug: Slug;
   excerpt?: string;
-  mainImage?: ImageAsset & { alt?: string };
+  cover?: ImageAsset & { alt?: string };
   body: PortableTextBlock[];
 }
