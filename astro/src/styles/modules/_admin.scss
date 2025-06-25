@@ -1,0 +1,23 @@
+@use '../shared' as *;
+
+.admin-page {
+  @include page-layout;
+}
+
+.page-header {
+  margin: 1rem 0;
+}
+
+.empty-text {
+  margin: 1rem 0;
+}
+
+.player-info {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+
+  .avatar {
+    margin-right: .5rem;
+  }
+}

@@ -1,24 +1,10 @@
 # TODO
 
-## web
-
-* i18n
-* fix sitemap
-* add header/footer
-* blog
-  * landing page with paginated post list
-  * post dynamic page
-* e-commerce (shopify / strapi)
-
-* CMS adapters:
-  * DatoCMS @repo/datocms-adapter
-  * Sanity  @repo/sanity-adapter
-  * Strapi  @repo/strapi-adapter
-
-## mobile (tauri app)
-
-* commmon ui?
-* strapi?
-
-
-## @repo/ui
+* make a working minimal example blog site with astro + sanity
+* add layout specific for blog
+* add portabletext and sanity image support
+* add dynamic render of blocks per page
+* add seo
+* add sitemap 
+* add rss feed
+* 

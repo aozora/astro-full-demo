@@ -1,0 +1,46 @@
+.button {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: auto;
+  height: 36px;
+  padding: 0 16px;
+  border: 1px solid var(--theme-ui-border);
+  border-radius: var(--global-radius);
+  font-size: var(--text-scale-16);
+  line-height: 1.25;
+  color: var(--theme-ui-foreground);
+  text-transform: uppercase;
+  background-color: var(--theme-ui-background);
+  text-decoration: none;
+  cursor: pointer;
+  transition: all .35s ease-in-out;
+
+  svg[class^="icon" ] {
+    width: 46.88px;
+    height: 20px;
+  }
+
+  span + svg {
+    margin-left: 10px;
+  }
+
+  &:hover,
+  &:focus-visible {
+    background-color: var(--color-brand);
+  }
+
+  &.primary {
+    background-color: var(--theme-ui-background-primary);
+    color: var(--theme-ui-foreground-primary);
+
+    &:hover,
+    &:focus-visible {
+      background-color: var(--theme-ui-background-primary-focus);
+      color: var(--theme-ui-foreground-primary-focus);
+      border-color: var(--theme-ui-border-focus);
+    }
+  }
+}
+

@@ -1,0 +1,40 @@
+.table {
+  tbody td {
+    border-top: 1px solid var(--token-layer02);
+    padding: .5rem !important;
+    font-size: var(--text-scale-16);
+    line-height: 1.2;
+    font-weight: var(--font-weight-regular);
+    color: var(--color-white);
+
+    @media (min-width: 64em){
+      padding: 1rem;
+    }
+  }
+
+  tbody tr {
+    transition: all, 0.2s;
+  }
+
+  tbody tr:hover {
+    background-color: var(--color-light-gray);
+    box-shadow: 0 1px 0 0 var(--color-light-gray) inset;
+  }
+
+  .table-button {
+    display: flex;
+    width: 40px;
+    height: 24px;
+    padding: 0 .5rem;
+    border: 1px solid var(--color-dark);
+    border-radius: var(--global-radius);
+    background-color: var(--color-brand);
+    color: var(--color-white);
+
+    &:hover, &:active {
+      background-color: var(--color-white);
+      color: var(--color-black);
+    }
+
+  }
+}

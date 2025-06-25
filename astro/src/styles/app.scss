@@ -1,0 +1,25 @@
+@charset "utf-8";
+
+/**
+ * MarcelloP Inclusive Library
+ * Version 1.0.0
+ * Licensed under MIT Open Source
+ */
+
+@use 'variables' as *;
+@use 'core/themes' as *;
+@use 'shared' as *;
+@use 'core/fonts' as *;
+@use 'core/base' as *;
+@use 'core/layout' as *;
+@use 'core/states' as *;
+@use 'core/form' as *;
+@use 'core/buttons' as *;
+@use 'core/animations' as *;
+@use 'core/error' as *;
+@use 'modules/auth' as *;
+@use 'modules/modal' as *;
+@use 'modules/table' as *;
+@use 'modules/default' as *;
+@use 'modules/admin' as *;
+

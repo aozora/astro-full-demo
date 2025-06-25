@@ -1,0 +1,135 @@
+/** ****************************************************************
+
+    CSS Variables
+
+    Font rules are setup in base.scss for all major
+    elements using CSS variables.
+    When there's need to override a font rule, there's no need to
+    set again the rules, but it's best to just set a new value for
+    a CSS variable for a font rule.
+
+    **************************************************************** */
+
+:root {
+  // ################################################################
+  //    COLORS
+  // ################################################################
+  --color-primary: #068FFF;
+  --color-black: #000;
+  --color-white: #fff;
+  --color-error: #f00;
+
+  // dark theme colors
+  --color-dark-darkest: #181A20; // for background
+  --color-dark-dark-alt: #1F222A;  // for alt background
+  --color-dark-hover: #172332; // for hover background
+  --color-dark-highlight: #35383F; // for shadows/lines
+  --color-dark-foreground: #fff; // text
+
+  // light theme colors
+  --color-light-darkest: #F5F5F6; // for background
+  --color-light-dark-alt: #fff;  // for alt background
+  --color-light-hover: #EBF6FF; // for hover background
+  --color-light-highlight: #EEEEEE; // for shadows/lines
+  --color-light-foreground: #212121; // text
+
+
+  // ################################################################
+  //    TYPOGRAPHY SCALE & FONTS
+  // ################################################################
+  --baseline: 1.5;
+  --body-font-weight: 400;
+  --heading-font-weight: 400;
+  --kerning: normal; // auto (default), normal (enabled), none (disabled)
+
+  // Fonts
+  --variable-font-family: 'Roboto Flex', Roboto, Helvetica, Arial, sans-serif;
+  --variable-heading-font-family: 'Roboto Flex', Roboto, Helvetica, Arial, sans-serif;
+  --body-font-family: 'Roboto Flex', Roboto, Helvetica, Arial, sans-serif;
+  --heading-font-family: 'Roboto Flex', Roboto, Helvetica, Arial, sans-serif;
+
+  // font weights
+  --font-weight-thin: 100;
+  --font-weight-extra-light: 200;
+  --font-weight-light: 300;
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semi-bold: 600;
+  --font-weight-bold: 700;
+  --font-weight-extra-bold: 800;
+  --font-weight-black: 900;
+
+  // type scale
+  --text-base-size: 1rem; // 18px - html is set to 112.5%
+  --text-scale-12: calc(12 / 18 * 1rem); //  12
+  --text-scale-14: calc(14 / 18 * 1rem); //  14
+  --text-scale-16: calc(16 / 18 * 1rem); //  16
+  --text-scale-18: calc(18 / 18 * 1rem); //  18
+  --text-scale-20: calc(20 / 18 * 1rem); //  20
+  --text-scale-24: calc(24 / 18 * 1rem); //  24
+  --text-scale-32: calc(32 / 18 * 1rem); //  32
+  --text-scale-40: calc(40 / 18 * 1rem); //  40
+  --text-scale-48: calc(48 / 18 * 1rem); //  48
+
+
+  /* max text sizes  */
+  --text-max-width: 38rem;
+
+  /* focus state */
+  --focus-outline: none;
+  --focus-box-shadow: none;
+  --focus-border-size: 2px;
+  --focus-border-style: dashed;
+  --focus-border-color: var(--color-black);
+
+
+  /* vf initial values */
+  --heading-weight: 700;
+  --text-weight: var(--body-font-weight);
+  --text-width: 100;
+  // --text-opticalsize: 16;
+
+  /* spacing */
+  --text-letter-spacing: 1px;
+  --text-on-dark-letter-spacing: 2px;
+
+
+  // ################################################################
+  //    SHADOWS
+  // ################################################################
+  --default-box-shadow: none;
+  --default-text-shadow: none;
+
+
+  // ################################################################
+  //    STATES
+  // ################################################################
+  --selection-color: var(--color-white);
+  --selection-background-color: var(--color-pantone);
+  --placeholder-color: var(--color-black);
+
+  // ################################################################
+  //    GLOBALS
+  // ################################################################
+  --global-radius: 10px;
+
+  // ################################################################
+  //    SECTIONING
+  // ################################################################
+  --sectionMaxWidth: 1024px;
+
+  // ################################################################
+  //    TRANSITIONS
+  // ################################################################
+  --link-underline-transition: width 0.35s linear;
+  --transition-transform: transform 0.35s linear;
+  --transition-background-size: background-size 0.35s linear;
+  --transition-background-color: background-color 0.35s linear;
+  --transition-color: color 0.35s linear;
+
+  // ################################################################
+  //    MENU
+  // ################################################################
+  --menu-mobile-height: 48px;
+}
+
