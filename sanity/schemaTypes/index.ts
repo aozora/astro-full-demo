@@ -1,13 +1,13 @@
 import blockContent from './blockContent'
-import category from './category'
-import post from './post'
-import author from './author'
+import category from './blog/category'
+import post from './blog/post'
+import author from './blog/author'
 import menu from './menu'
 import site from './site'
-import hero from './hero'
-import quote from './quote'
+import hero from './blocks/hero'
+import quote from './blocks/quote'
 import home from './home'
-import textAndMedium from './textAndMedium'
+import textAndMedium from './blocks/textAndMedium'
 
 export const schemaTypes = [
   site,

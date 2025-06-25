@@ -2,13 +2,15 @@
 import Card from "../components/Card.astro";
 import Welcome from "../components/Welcome.astro";
 import Layout from "../layouts/Layout.astro";
-import { getPosts } from "../lib/sanity";
+import { getHome } from "../lib/sanity/repository";
 
-const posts = await getPosts();
+const pageData = await getHome()
+// console.log({pageData});
+// console.log(pageData.seo);
 ---
 
-<Layout title="Welcome to Astro.">
-  <section>
-    {posts.length ? posts.map((post) => <Card post={post} />) : <Welcome />}
-  </section>
+<Layout title={pageData.title} seo={pageData.seo}>
+
+  <div>CoNtEnT</div>
+
 </Layout>

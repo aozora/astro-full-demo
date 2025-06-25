@@ -9,6 +9,10 @@ export default defineType({
       name: 'seo',
       title: 'SEO',
     },
+    {
+      name: 'blocks',
+      title: 'Blocks',
+    },
   ],
   fields: [
     defineField({
@@ -31,9 +35,10 @@ export default defineType({
 
     // modular page
     defineField({
-      name: 'modules',
+      name: 'blocks',
       type: 'array',
-      title: 'Page modules',
+      title: 'Blocks',
+      group: 'blocks',
       of: [
         defineArrayMember({
           name: 'hero',
@@ -52,12 +57,13 @@ export default defineType({
   ],
   preview: {
     select: {
-      metaTitle: 'seo',
+      metaTitle: 'title',
+      slug: "slug",
     },
     prepare(selection) {
-      const {metaTitle} = selection?.metaTitle || ''
+      const {metaTitle, slug} = selection?.metaTitle || ''
       return {
-        title: metaTitle || 'seo',
+        title: metaTitle || slug,
       }
     },
   },

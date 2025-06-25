@@ -2,7 +2,7 @@
 import type { InferGetStaticParamsType } from "astro";
 import { PortableText } from "astro-portabletext";
 import Layout from "../../layouts/Layout.astro";
-import { getPost, getPosts } from "../../lib/sanity";
+import { getPost, getPosts } from "../../lib/sanity/repository";
 import { formatDate, urlFor } from "../../lib/helpers";
 
 export async function getStaticPaths() {

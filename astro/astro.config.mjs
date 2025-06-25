@@ -25,6 +25,7 @@ export default defineConfig({
       // Set useCdn to false if you're building statically.
       useCdn: false,
       // studioBasePath: "/admin",
+      apiVersion: "2025-06-25",
     }),
     svelte(),
     sitemap()

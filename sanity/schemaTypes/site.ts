@@ -13,8 +13,15 @@ export default defineType({
   fields: [
     defineField({
       name: 'title',
+      title: 'Site title',
       type: 'string',
       validation: (rule) => rule.required(),
+    }),
+    defineField({
+      name: 'menu',
+      title: 'Menu',
+      type: 'array',
+      of: [{type: 'menu'}],
     }),
     defineField({
       title: 'Seo',
@@ -22,21 +29,15 @@ export default defineType({
       type: 'seoMetaFields',
       group: 'seo',
     }),
-    defineField({
-      title: 'Menu',
-      name: 'menu',
-      type: 'array',
-      of: [{type: 'menuItem'}],
-    }),
   ],
   preview: {
     select: {
-      metaTitle: 'seo',
+      metaTitle: 'title',
     },
     prepare(selection) {
       const {metaTitle} = selection?.metaTitle || ''
       return {
-        title: metaTitle || 'seo',
+        title: metaTitle,
       }
     },
   },

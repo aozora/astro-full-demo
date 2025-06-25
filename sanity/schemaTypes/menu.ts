@@ -1,8 +1,8 @@
 import {defineField, defineType} from 'sanity'
 
 export default defineType({
-  name: 'menuItem',
-  title: 'menuItem',
+  name: 'menu',
+  title: 'Menu',
   type: 'document',
   fields: [
     defineField({
@@ -15,16 +15,3 @@ export default defineType({
     }),
   ],
 })
-
-// export const menuType = defineType({
-//   name: 'menu',
-//   title: 'Menu',
-//   type: 'document',
-//   fields: [
-//     defineField({
-//       name: 'items',
-//       type: 'array',
-//       of: [{type: 'menuItem'}],
-//     }),
-//   ],
-// })
