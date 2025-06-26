@@ -1,6 +1,6 @@
 # TODO
 
-* make a working minimal example blog site with astro + sanity
+[x] make a working minimal example blog site with astro + sanity
 * add layout specific for blog
 * i18n
 * add portabletext and sanity image support

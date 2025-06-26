@@ -6,23 +6,23 @@ import homeQuery from "@lib/sanity/queries/home.query.ts";
 import type { Home, Post, Site } from "@lib/sanity/types.ts";
 
 export async function getSite(): Promise<Site> {
-  const site = await sanityClient.fetch<Array<Site>>(siteQuery);
+  const site = await sanityClient.fetch<Site>(siteQuery);
 
-  if (!site){
-    throw new Error("Site not found")
+  if (!site) {
+    throw new Error("Site not found");
   }
 
-  return site[0]
+  return site;
 }
 
 export async function getHome(): Promise<Home> {
-  const home = await sanityClient.fetch<Array<Home>>(homeQuery);
+  const home = await sanityClient.fetch<Home>(homeQuery);
 
-  if (!home){
-    throw new Error("Home document not found")
+  if (!home) {
+    throw new Error("Home document not found");
   }
 
-  return home[0]
+  return home;
 }
 
 export async function getPosts(): Promise<Post[]> {
