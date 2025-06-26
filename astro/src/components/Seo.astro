@@ -1,13 +1,28 @@
 ---
-// import React, { useMemo } from "react";
+import { getSecret } from "astro:env/server";
 import type { PropsWithChildren } from "react";
-import { CustomImageType, MetaAttributeType, MetaTagType, OpenGraphType, SeoType } from "@lib/sanity/seo/types";
+import {
+  CustomImageType,
+  MetaAttributeType,
+  type MetaTag,
+  MetaTagType,
+  OpenGraph,
+  OpenGraphType,
+  SeoType,
+} from "../lib/sanity/seo/types";
 import { SEO } from "astro-seo";
 
 interface Props {
-  pageSeo: SeoType | undefined;
+  title: string;
+  pageSlug?: string | undefined;
+  pageSeo?: SeoType | undefined;
   siteSeo: SeoType | undefined;
 }
+
+/**
+ * Props
+ */
+const { title, pageSlug, pageSeo, siteSeo } = Astro.props;
 
 export const getOpenGraph = (args: OpenGraphType) => {
   const { description, image, title, _type, siteName, url } = args;
@@ -18,20 +33,42 @@ export const getOpenGraph = (args: OpenGraphType) => {
     siteName,
     url,
     title,
-    images: [{ url: getImage ?? "" }]
+    images: [{ url: getImage ?? "" }],
   };
-  return values as NextSeoOpenGraph;
+  return values as OpenGraph;
 };
 
-export const getMetaObjects = (tags: MetaTagType[], allowIndexing?: boolean) => {
-  const tagArray: NextSeoMetaTag[] = [];
-  tags.map(tag => {
+export const getMetaAttribute = (attrs: MetaAttributeType[] | undefined) => {
+  if (!attrs) {
+    return null;
+  }
+
+  const obj: Record<string, string> = {};
+
+  attrs.map((i) => {
+    Object.assign(obj, {
+      [i?.attributeKey as string]:
+        i.attributeType == "image"
+          ? resolveImage(i?.attributeValueImage)
+          : i.attributeValueString,
+    });
+  });
+
+  return obj as unknown as MetaTag;
+};
+
+export const getMetaObjects = (
+  tags: MetaTagType[],
+  allowIndexing?: boolean,
+) => {
+  const tagArray: MetaTag[] = [];
+  tags.map((tag) => {
     const excludeTag =
       !allowIndexing &&
       !!tag.metaAttributes?.find(
-        i =>
+        (i) =>
           i?.attributeValueString?.includes("noindex") ||
-          i?.attributeValueString?.includes("nofollow")
+          i?.attributeValueString?.includes("nofollow"),
       );
     if (!excludeTag) {
       const metaTag = getMetaAttribute(tag?.metaAttributes);
@@ -40,6 +77,7 @@ export const getMetaObjects = (tags: MetaTagType[], allowIndexing?: boolean) => 
       }
     }
   });
+
   return tagArray;
 };
 
@@ -47,87 +85,75 @@ export const resolveImage = (image?: CustomImageType) => {
   return image?.asset?.url ?? "";
 };
 
-export const getMetaAttribute = (attrs: MetaAttributeType[] | undefined) => {
-  if (!attrs) {
-    return null;
+const getTitle = () => {
+  if (pageSeo?.metaTitle) {
+    return pageSeo?.metaTitle;
+  } else if (siteSeo?.metaTitle) {
+    return siteSeo?.metaTitle;
   }
-  const obj: Record<string, string> = {};
-  attrs.map((i) => {
-    Object.assign(obj, {
-      [i?.attributeKey as string]:
-        i.attributeType == "image"
-          ? resolveImage(i?.attributeValueImage)
-          : i.attributeValueString
-    });
-  });
-  return obj as unknown as NextSeoMetaTag;
+
+  return title;
 };
 
+const getDescription = () => {
+  if (pageSeo?.metaDescription) {
+    return pageSeo?.metaDescription;
+  } else if (siteSeo?.metaDescription) {
+    return siteSeo?.metaDescription;
+  }
 
-// interface CustomNextSeoProps {
-//   seo: SeoType | null;
-//   slug: string;
-// }
+  return undefined;
+};
 
-const { pageSeo, siteSeo } = Astro.props;
-// const { additionalMetaTags, metaDescription, metaTitle, twitter, nofollowAttributes, seoKeywords } = seo || {};
+const tags = () => {
+  // (additionalMetaTags ? getMetaObjects(additionalMetaTags) : []
+  if (pageSeo?.additionalMetaTags) {
+    getMetaObjects(pageSeo?.additionalMetaTags);
+  } else if (siteSeo?.additionalMetaTags) {
+    getMetaObjects(siteSeo?.additionalMetaTags);
+  }
 
-console.log({pageSeo});
-// const tags =
-//     () => (additionalMetaTags ? getMetaObjects(additionalMetaTags) : []),
-//
-//   );
-// const openGraph =
-//     () => (seo?.openGraph ? getOpenGraph(seo?.openGraph) : undefined),
-//
-//   );
-// const url = (process.env.NEXT_PUBLIC_APP_URL ?? "") + (slug?.startsWith("/") ? slug : `/${slug}`);
+  return [];
+};
+
+const canonicalUrl =
+  (getSecret("PUBLIC_URL") ?? "") +
+  (pageSlug?.startsWith("/") ? pageSlug : `/${pageSlug}`);
+
+const openGraph = () => {
+  const { openGraph } = pageSeo;
+  const image = openGraph.image?.asset?.url;
+
+  if (!image) {
+    return undefined;
+  }
+
+  const graph = {
+    basic: {
+      type: "website",
+      description: openGraph.description,
+      siteName: openGraph.siteName,
+      url: canonicalUrl,
+      title: openGraph.title,
+      image,
+    },
+  };
+  return graph as OpenGraph;
+};
 ---
 
 <SEO
-  title="A Very Descriptive Title"
-  description="A heavily optimized description full of well-researched keywords."
-  openGraph={{
-    basic: {
-      title: "A Very Descriptive Title",
-      type: "A type.",
-      image: "https://user-images.githubusercontent.com/5182256/131216951-8f74f425-f775-463d-a11b-0e01ad9fce8d.png",
-    }
-  }}
-  twitter={{
-    creator: "@jonasmerlins1"
-  }}
+  titleTemplate={`%s - ${siteSeo.metaTitle}`}
+  titleDefault={siteSeo.metaTitle}
+  title={getTitle()}
+  description={getDescription()}
+  openGraph={openGraph()}
+  twitter={pageSeo.twitter || siteSeo.twitter}
+  canonical={canonicalUrl}
+  noindex={pageSeo.nofollowAttributes}
+  nofollow={pageSeo.nofollowAttributes}
+  additionalMetaTags={tags()}
   extend={{
-    // extending the default link tags
-        link: [{ rel: "icon", href: "/favicon.ico" }],
-    // extending the default meta tags
-        meta: [
-      {
-        name: "twitter:image",
-        content: "https://user-images.githubusercontent.com/5182256/131216951-8f74f425-f775-463d-a11b-0e01ad9fce8d.png",
-      },
-      { name: "twitter:title", content: "Tinker Tailor Soldier Spy" },
-      { name: "twitter:description", content: "Agent" },
-    ],
+    link: [{ rel: "icon", href: "/favicon.ico" }],
   }}
 />
-
-  <!--<NextSeo-->
-  <!--  themeColor=""-->
-  <!--  twitter={{-->
-  <!--    handle: twitter?.creator,-->
-  <!--    site: twitter?.site,-->
-  <!--    cardType: twitter?.cardType-->
-  <!--  }}-->
-  <!--  nofollow={nofollowAttributes}-->
-  <!--  noindex={nofollowAttributes}-->
-  <!--  openGraph={openGraph}-->
-  <!--  canonical={url || ""}-->
-  <!--  additionalMetaTags={((seoKeywords && seoKeywords?.length > 0-->
-  <!--    ? [{ name: "keywords", content: seoKeywords?.join(", ") }]-->
-  <!--    : []) as NextSeoMetaTag[]).concat(tags ?? [])}-->
-  <!--  title={metaTitle ?? ""}-->
-  <!--  description={metaDescription ?? ""}-->
-  <!--/>-->
-
-

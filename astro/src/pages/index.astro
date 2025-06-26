@@ -4,13 +4,9 @@ import Welcome from "../components/Welcome.astro";
 import Layout from "../layouts/Layout.astro";
 import { getHome } from "../lib/sanity/repository";
 
-const pageData = await getHome()
-// console.log({pageData});
-// console.log(pageData.seo);
+const pageData = await getHome();
 ---
 
-<Layout title={pageData.title} seo={pageData.seo}>
-
+<Layout title={pageData.title} pageSeo={pageData.seo} pageSlug={pageData.slug}>
   <div>CoNtEnT</div>
-
 </Layout>

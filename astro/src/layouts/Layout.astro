@@ -1,20 +1,18 @@
 ---
 // https://docs.astro.build/en/guides/view-transitions/
 import { ClientRouter } from "astro:transitions";
-import Seo from '@components/Seo.astro'
+import Seo from "@components/Seo.astro";
 import { getSite } from "../lib/sanity/repository";
 import { SeoType } from "@lib/sanity/seo/types";
 import "@styles/app.scss";
 
 interface Props {
   title: string;
-  seo: SeoType | undefined;
+  pageSeo: SeoType | undefined;
 }
 
-const { title, seo }:Props = Astro.props;
+const { title, slug, pageSeo }: Props = Astro.props;
 const layoutData = await getSite();
-console.dir(layoutData);
-// console.dir( layoutData.seo );
 ---
 
 <!doctype html>
@@ -24,8 +22,17 @@ console.dir(layoutData);
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
-    <title>{title}</title>
-    {seo && <Seo siteSeo={layoutData.seo} pageSeo={seo} />}
+    {!pageSeo && <title>{title}</title>}
+    {
+      pageSeo && (
+        <Seo
+          title={title}
+          siteSeo={layoutData.seo}
+          pageSeo={pageSeo}
+          pageSlug={slug}
+        />
+      )
+    }
     <ClientRouter />
   </head>
   <body>
