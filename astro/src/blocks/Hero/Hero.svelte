@@ -2,13 +2,19 @@
   // import type {ResponsiveImage, YouTubeVideo} from "@/lib/datocms/types.ts";
   // import {NakedImage} from '@datocms/svelte';
   // import {type ResponsiveImageType} from '@datocms/svelte';
+  import { urlFor } from '@lib/helpers.ts';
 
   interface Props {
     title: string;
     picture: {
-      responsiveImage: ResponsiveImageType;
+      _type:string
+      alt?:string
+      asset:{
+        _ref:string
+        _type:string
+      }
     }
-    videoYoutube: YouTubeVideo
+    videoYoutube: any
   }
 
   let {title, picture, videoYoutube}: Props = $props();
@@ -20,6 +26,7 @@
   {/if}
 
   {#if picture}
+    <img class="hero-picture" src={urlFor(picture).url()} alt={picture.alt} />
 <!--    <NakedImage pictureClass="hero-picture"-->
 <!--                data={picture.responsiveImage}-->
 <!--    />-->
@@ -36,11 +43,12 @@
 
 <style lang="scss">
   .hero {
+    grid-column: 1/-1;
     position: relative;
     width: 100%;
     height: 80vh;
     height: 80dvh;
-    padding: 1rem;
+    padding: 0;
     text-align: center;
 
     h1 {

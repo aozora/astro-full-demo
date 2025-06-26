@@ -9,7 +9,7 @@
 	// eslint-disable-next-line @typescript-eslint/no-explicit-any
 	let component: any;
 
-	switch (block._modelApiKey) {
+	switch (block._type) {
 		case keys.HERO:
 			component = Hero;
 			break;

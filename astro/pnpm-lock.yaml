@@ -20,6 +20,9 @@ importers:
       '@astrojs/svelte':
         specifier: ^7.0.4
         version: 7.1.0(@types/node@24.0.3)(astro@5.10.1(@types/node@24.0.3)(jiti@2.4.2)(rollup@4.44.0)(sass-embedded@1.89.2)(sass@1.89.2)(typescript@5.8.3)(yaml@2.8.0))(jiti@2.4.2)(sass-embedded@1.89.2)(sass@1.89.2)(svelte@5.34.8)(typescript@5.8.3)(yaml@2.8.0)
+      '@portabletext/svelte':
+        specifier: ^3.0.0
+        version: 3.0.0(svelte@5.34.8)
       '@portabletext/types':
         specifier: ^2.0.13
         version: 2.0.13
@@ -1643,6 +1646,11 @@ packages:
     engines: {node: ^14.13.1 || >=16.0.0}
     peerDependencies:
       react: ^17 || ^18 || >=19.0.0-0
+
+  '@portabletext/svelte@3.0.0':
+    resolution: {integrity: sha512-1PTbasjgyYdA/vpt4BCs3Nc0Fr8pqJQRuI6llhpNe+JgZ1EoSstzzjkSSGn9TtPW7yPls5i/7QksqhYTjUDocw==}
+    peerDependencies:
+      svelte: ^5.0.0
 
   '@portabletext/to-html@2.0.14':
     resolution: {integrity: sha512-wW2et59PoOT/mc56C4U3z+DKAx1yjieN/gp2q9szTfTwusMpb6mclR9+EPIfGrcQWdwGn6PEN7nxVFXnqlZ/0A==}
@@ -8513,6 +8521,11 @@ snapshots:
       '@portabletext/toolkit': 2.0.17
       '@portabletext/types': 2.0.13
       react: 19.1.0
+
+  '@portabletext/svelte@3.0.0(svelte@5.34.8)':
+    dependencies:
+      '@portabletext/toolkit': 2.0.17
+      svelte: 5.34.8
 
   '@portabletext/to-html@2.0.14':
     dependencies:

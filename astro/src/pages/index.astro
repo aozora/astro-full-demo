@@ -1,6 +1,7 @@
 ---
 import Card from "../components/Card.astro";
 import Welcome from "../components/Welcome.astro";
+import BlocksRenderer from "../components/BlocksRenderer/BlocksRenderer.svelte";
 import Layout from "../layouts/Layout.astro";
 import { getHome } from "../lib/sanity/repository";
 
@@ -8,5 +9,7 @@ const pageData = await getHome();
 ---
 
 <Layout title={pageData.title} pageSeo={pageData.seo} pageSlug={pageData.slug}>
-  <div>CoNtEnT</div>
+  <main>
+    <BlocksRenderer blocks={pageData.blocks} client:load />
+  </main>
 </Layout>

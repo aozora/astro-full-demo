@@ -1,5 +1,5 @@
 export const keys = {
-	HERO: 'hero',
-	QUOTE: 'quote',
-	TEXT_AND_MEDIUM: 'text-and-medium'
+  HERO: "hero",
+  QUOTE: "quote",
+  TEXT_AND_MEDIUM: "textAndMedium",
 };
