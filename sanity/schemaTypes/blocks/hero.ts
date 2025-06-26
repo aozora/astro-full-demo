@@ -1,8 +1,10 @@
+import {PanoramaIcon} from '@phosphor-icons/react/dist/csr/Panorama'
 import {defineField, defineType} from 'sanity'
 
 export default defineType({
   name: 'hero',
   title: 'Hero',
+  icon: PanoramaIcon,
   type: 'document',
   fields: [
     defineField({

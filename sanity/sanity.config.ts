@@ -3,6 +3,7 @@ import {structureTool} from 'sanity/structure'
 import {visionTool} from '@sanity/vision'
 import {schemaTypes} from './schemaTypes'
 import {seoMetaFields} from 'sanity-plugin-seo'
+import structure from './structure'
 
 export default defineConfig({
   name: 'default',
@@ -11,7 +12,13 @@ export default defineConfig({
   projectId: 'tu1qdt6g',
   dataset: 'production',
 
-  plugins: [structureTool(), visionTool(), seoMetaFields()],
+  plugins: [
+    structureTool({
+      structure,
+    }),
+    visionTool(),
+    seoMetaFields(),
+  ],
 
   schema: {
     types: schemaTypes,

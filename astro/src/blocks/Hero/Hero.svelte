@@ -46,8 +46,8 @@
     grid-column: 1/-1;
     position: relative;
     width: 100%;
-    height: 80vh;
-    height: 80dvh;
+    height: 60vh;
+    height: 60dvh;
     padding: 0;
     text-align: center;
 
