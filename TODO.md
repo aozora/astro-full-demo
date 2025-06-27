@@ -3,7 +3,9 @@
 [x] make a working minimal example blog site with astro + sanity
 * add layout specific for blog
 * i18n
-* add portabletext and sanity image support
+* add portabletext 
+* add sanity image support
+* code-gen
 * VISUAL EDITOR
 [x] add dynamic render of blocks per page
 [x] add seo
@@ -12,3 +14,4 @@
 * sanity media library (aspects)
 * check redirects
 * manage drafts
+* margin blocks

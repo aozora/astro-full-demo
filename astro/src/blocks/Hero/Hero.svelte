@@ -1,19 +1,10 @@
 <script lang="ts">
-  // import type {ResponsiveImage, YouTubeVideo} from "@/lib/datocms/types.ts";
-  // import {NakedImage} from '@datocms/svelte';
-  // import {type ResponsiveImageType} from '@datocms/svelte';
   import { urlFor } from '@/lib/helpers.ts';
+  import type { Image } from '@sanity/types';
 
   interface Props {
     title: string;
-    picture: {
-      _type:string
-      alt?:string
-      asset:{
-        _ref:string
-        _type:string
-      }
-    }
+    picture: Image
     videoYoutube: any
   }
 
