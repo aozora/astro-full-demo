@@ -39,7 +39,7 @@
     align-items: center;
     width: 100%;
     height: 80px;
-    padding: 0 1rem;
+    padding: 0 2rem 0 1rem;
     background-color: var(--theme-background);
     color: var(--theme-foreground);
 
@@ -75,5 +75,11 @@
       justify-content: flex-end;
       gap: 1rem;
     }
+
+		li{
+			a{
+				color: var(--theme-foreground);
+			}
+		}
   }
 </style>
