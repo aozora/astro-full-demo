@@ -2,7 +2,7 @@
   // import type {ResponsiveImage, YouTubeVideo} from "@/lib/datocms/types.ts";
   // import {NakedImage} from '@datocms/svelte';
   // import {type ResponsiveImageType} from '@datocms/svelte';
-  import { urlFor } from '@lib/helpers.ts';
+  import { urlFor } from '@/lib/helpers.ts';
 
   interface Props {
     title: string;

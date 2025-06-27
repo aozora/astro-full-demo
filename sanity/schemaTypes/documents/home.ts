@@ -57,13 +57,15 @@ export default defineType({
   ],
   preview: {
     select: {
-      metaTitle: 'title',
-      slug: "slug",
+      title: 'title',
+      subtitle: 'slug',
     },
     prepare(selection) {
-      const {metaTitle, slug} = selection?.metaTitle || ''
+      const {title, subtitle} = selection
+      console.log({subtitle})
       return {
-        title: metaTitle || slug,
+        title,
+        subtitle: subtitle.current,
       }
     },
   },

@@ -11,17 +11,8 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@lib/*": [
-        "src/lib/*"
-      ],
-      "@components/*": [
-        "src/components/*"
-      ],
-      "@blocks/*": [
-        "src/blocks/*"
-      ],
-      "@styles/*": [
-        "src/styles/*"
+      "@/*": [
+        "./src/*"
       ]
     },
     "strictNullChecks": true

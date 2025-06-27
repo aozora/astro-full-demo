@@ -11,8 +11,8 @@ import {defineType, defineArrayMember} from 'sanity'
  *  }
  */
 export default defineType({
-  title: 'Block Content',
-  name: 'blockContent',
+  title: 'Basic Block Content',
+  name: 'blockContentBasic',
   type: 'array',
   of: [
     defineArrayMember({
@@ -37,7 +37,7 @@ export default defineType({
         // preference or highlighting by editors.
         decorators: [
           {title: 'Strong', value: 'strong'},
-          {title: 'Emphasis', value: 'em'},
+          // {title: 'Emphasis', value: 'em'},
         ],
         // Annotations can be any object structure – e.g. a link or a footnote.
         annotations: [
@@ -59,16 +59,16 @@ export default defineType({
     // You can add additional types here. Note that you can't use
     // primitive types such as 'string' and 'number' in the same array
     // as a block type.
-    defineArrayMember({
-      type: 'image',
-      options: {hotspot: true},
-      fields: [
-        {
-          name: 'alt',
-          type: 'string',
-          title: 'Alternative Text',
-        },
-      ],
-    }),
+    // defineArrayMember({
+    //   type: 'image',
+    //   options: {hotspot: true},
+    //   fields: [
+    //     {
+    //       name: 'alt',
+    //       type: 'string',
+    //       title: 'Alternative Text',
+    //     },
+    //   ],
+    // }),
   ],
 })

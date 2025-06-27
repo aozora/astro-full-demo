@@ -1,9 +1,9 @@
 import { sanityClient } from "sanity:client";
 import type { PortableTextBlock } from "@portabletext/types";
 import groq from "groq";
-import siteQuery from "@lib/sanity/queries/site.query.ts";
-import homeQuery from "@lib/sanity/queries/home.query.ts";
-import type { Home, Post, Site } from "@lib/sanity/types.ts";
+import siteQuery from "@/lib/sanity/queries/site.query.ts";
+import homeQuery from "@/lib/sanity/queries/home.query.ts";
+import type { Home, Post, Site } from "@/lib/sanity/types.ts";
 
 export async function getSite(): Promise<Site> {
   const site = await sanityClient.fetch<Site>(siteQuery);

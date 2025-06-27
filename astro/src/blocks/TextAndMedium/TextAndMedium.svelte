@@ -1,27 +1,34 @@
 <script lang="ts">
-  // import {PortableText as PortableTextInternal} from "astro-portabletext"
-  import {PortableText} from '@portabletext/svelte'
-  // const components = {
-  //   type: {
-  //     callToActionBox: CallToActionBox,
-  //     code: Code,
-  //     image: SanityImage,
-  //     youtube: YouTube,
-  //   },
-  //   mark: {
-  //     internalLink: InternalLink
-  //   }
-  // };
+	import { PortableText } from '@portabletext/svelte';
 
-  let { text } = $props();
+	interface Props {
+		text: any;
+		alignment: Array<'text-only' | 'text-right' | 'text-left' | 'vertical-text-picture' | 'vertical-picture-text'>;
+	}
+
+	// const components = {
+	//   type: {
+	//     callToActionBox: CallToActionBox,
+	//     code: Code,
+	//     image: SanityImage,
+	//     youtube: YouTube,
+	//   },
+	//   mark: {
+	//     internalLink: InternalLink
+	//   }
+	// };
+
+	let { text, alignment } = $props();
+
+	console.log({ alignment });
 </script>
 
 <article class="text-and-medium">
-  <PortableText value={text} />
+	<PortableText value={text} />
 </article>
 
 <style lang="scss">
-  .text-and-medium{
+  .text-and-medium {
     grid-column: 2;
     display: flex;
     justify-content: space-between;

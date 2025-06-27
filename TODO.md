@@ -5,8 +5,8 @@
 * i18n
 * add portabletext and sanity image support
 * VISUAL EDITOR
-* add dynamic render of blocks per page
-* add seo
+[x] add dynamic render of blocks per page
+[x] add seo
 * add sitemap 
 * add rss feed
 * sanity media library (aspects)

@@ -1,9 +1,9 @@
 ---
-import Card from "../components/Card.astro";
-import Welcome from "../components/Welcome.astro";
-import BlocksRenderer from "../components/BlocksRenderer/BlocksRenderer.svelte";
-import Layout from "../layouts/Layout.astro";
-import { getHome } from "../lib/sanity/repository";
+import Card from "@/components/Card.astro";
+import Welcome from "@/components/Welcome.astro";
+import BlocksRenderer from "@/components/BlocksRenderer/BlocksRenderer.svelte";
+import Layout from "@/layouts/Layout.astro";
+import { getHome } from "@/lib/sanity/repository";
 
 const pageData = await getHome();
 ---

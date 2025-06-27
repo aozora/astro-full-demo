@@ -4,8 +4,11 @@ import {PackageIcon} from '@phosphor-icons/react/dist/csr/Package'
 import {FadersIcon} from '@phosphor-icons/react/dist/csr/Faders'
 import {FilesIcon} from '@phosphor-icons/react/dist/csr/Files'
 import {Blocks} from '../schemaTypes/blocks'
-import site from '../schemaTypes/site'
-import home from '../schemaTypes/home'
+import site from '../schemaTypes/documents/site'
+import home from '../schemaTypes/documents/home'
+import {HouseIcon} from '@phosphor-icons/react/dist/csr/House'
+import {FileIcon} from '@phosphor-icons/react/dist/csr/File'
+import {NewspaperClippingIcon} from '@phosphor-icons/react/dist/csr/NewspaperClipping'
 
 /**
  * Custom Structure Tool
@@ -44,8 +47,30 @@ export default (S: StructureBuilder) =>
       S.listItem()
         .title('Pages')
         .icon(FilesIcon)
-        .child(S.documentTypeList(home.name).title('Pages')),
+        .child(
+          S.list()
+            .title('Pages')
+            .items([
+              S.listItem()
+                .title('Home')
+                .schemaType('home')
+                .icon(HouseIcon)
+                .child(S.documentTypeList(home.name).title('Pages')),
+              // S.listItem().title('Page').schemaType('page').icon(FileIcon),
+              // .child(S.documentTypeList(home.name).title('Pages')),
+              S.documentTypeListItem('page').title('Pages'),
+            ]),
+        ),
       S.divider(),
 
       // blog
+      S.listItem()
+        .title('News')
+        .icon(NewspaperClippingIcon)
+        .child(
+          S.list()
+            .title('News')
+            .items([S.documentTypeListItem('post').title('News')]),
+        ),
+      S.divider(),
     ])

@@ -9,8 +9,8 @@ export default defineConfig({
   name: 'default',
   title: 'Astro Full Demo',
 
-  projectId: 'tu1qdt6g',
-  dataset: 'production',
+  projectId: process.env.SANITY_STUDIO_PROJECT_ID!,
+  dataset: process.env.SANITY_STUDIO_DATASET!,
 
   plugins: [
     structureTool({
@@ -22,5 +22,15 @@ export default defineConfig({
 
   schema: {
     types: schemaTypes,
+  },
+
+  tools: (prev, {currentUser}) => {
+    const isAdmin = currentUser?.roles.some((role) => role.name === 'administrator')
+
+    if (isAdmin) {
+      return prev
+    }
+
+    return prev.filter((tool) => tool.name !== 'vision')
   },
 })

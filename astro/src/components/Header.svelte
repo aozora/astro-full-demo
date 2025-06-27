@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { MenuItem } from '@lib/sanity/types.ts';
+	import type { MenuItem } from '@/lib/sanity/types.ts';
 
 	interface Props {
 		menu: Array<MenuItem>;

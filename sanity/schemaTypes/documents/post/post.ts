@@ -1,8 +1,10 @@
 import {defineField, defineType} from 'sanity'
+import {NewspaperClippingIcon} from '@phosphor-icons/react/dist/csr/NewspaperClipping'
 
 export default defineType({
   name: 'post',
   title: 'Post',
+  icon: NewspaperClippingIcon,
   type: 'document',
   fields: [
     defineField({
@@ -54,12 +56,29 @@ export default defineType({
   preview: {
     select: {
       title: 'title',
-      author: 'author.name',
+      subtitle: 'slug',
       media: 'cover',
     },
     prepare(selection) {
-      const {author} = selection
-      return {...selection, subtitle: author && `by ${author}`}
+      const {title, subtitle, media} = selection
+      console.log({subtitle})
+      return {
+        title,
+        subtitle: subtitle.current,
+        media,
+      }
     },
   },
+
+  // preview: {
+  //   select: {
+  //     title: 'title',
+  //     author: 'author.name',
+  //     media: 'cover',
+  //   },
+  //   prepare(selection) {
+  //     const {author} = selection
+  //     return {...selection, subtitle: author && `by ${author}`}
+  //   },
+  // },
 })

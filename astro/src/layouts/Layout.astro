@@ -1,12 +1,12 @@
 ---
 // https://docs.astro.build/en/guides/view-transitions/
 import { ClientRouter } from "astro:transitions";
-import Seo from "@components/Seo.astro";
-import Header from "@components/Header.svelte";
-import Footer from "@components/Footer.astro";
-import { getSite } from "../lib/sanity/repository";
-import { SeoType } from "@lib/sanity/seo/types";
-import "@styles/app.scss";
+import Seo from "@/components/Seo.astro";
+import Header from "@/components/Header.svelte";
+import Footer from "@/components/Footer.astro";
+import { getSite } from "@/lib/sanity/repository";
+import { SeoType } from "@/lib/sanity/seo/types";
+import "@/styles/app.scss";
 
 interface Props {
   title: string;
