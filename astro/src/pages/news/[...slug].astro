@@ -4,18 +4,34 @@ import { PortableText } from "astro-portabletext";
 import Layout from "@/layouts/Layout.astro";
 import { getPost, getPosts } from "@/lib/sanity/repository";
 import { formatDate, urlFor } from "@/lib/helpers";
+import type { SanityDocument } from "@sanity/client";
+import { loadQuery } from "../../lib/sanity";
 
-export async function getStaticPaths() {
-  const posts = await getPosts();
-  return posts.map((post) => ({
-    params: { slug: post.slug.current },
-  }));
-}
+// export async function getStaticPaths() {
+//   const posts = await getPosts();
+//   return posts.map((post) => ({
+//     params: { slug: post.slug.current },
+//   }));
+// }
 
 type Params = InferGetStaticParamsType<typeof getStaticPaths>;
 const { slug } = Astro.params as Params;
 
 const post = await getPost(slug);
+
+export async function getStaticPaths() {
+  const { data: posts } = await loadQuery<SanityDocument[]>({
+    query: `*[_type == "post"]`,
+  });
+
+  return posts.map(({ slug }) => {
+    return {
+      params: {
+        slug: slug.current,
+      },
+    };
+  });
+}
 ---
 
 <Layout title={post.title} pageSeo={post.seo} pageSlug={post.slug}>

@@ -1,5 +1,5 @@
-import { type QueryParams } from "sanity";
 import { sanityClient } from "sanity:client";
+import type { QueryParams } from "@sanity/client";
 
 const visualEditingEnabled =
   import.meta.env.PUBLIC_SANITY_VISUAL_EDITING_ENABLED === "true";
