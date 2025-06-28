@@ -4,7 +4,7 @@ import siteQuery from "@/lib/sanity/queries/site.query.ts";
 import homeQuery from "@/lib/sanity/queries/home.query.ts";
 import postsQuery from "@/lib/sanity/queries/posts.query.ts";
 import postQuery from "@/lib/sanity/queries/post.query.ts";
-import type { Home, Post, Site } from "@/lib/sanity/types.ts";
+import type { Home, Post, Site } from "./codegen/sanity.types";
 
 export async function getSite(): Promise<Site> {
   const site = await sanityClient.fetch<Site>(siteQuery);

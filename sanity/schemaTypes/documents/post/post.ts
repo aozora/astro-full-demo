@@ -6,11 +6,19 @@ export default defineType({
   title: 'Post',
   icon: NewspaperClippingIcon,
   type: 'document',
+  groups: [
+    {
+      name: 'seo',
+      title: 'SEO',
+    },
+  ],
+
   fields: [
     defineField({
       name: 'title',
       title: 'Title',
       type: 'string',
+      validation: (rule) => rule.required(),
     }),
     defineField({
       name: 'slug',
@@ -20,6 +28,12 @@ export default defineType({
         source: 'title',
         maxLength: 96,
       },
+    }),
+    defineField({
+      title: 'Seo',
+      name: 'seo',
+      type: 'seoMetaFields',
+      group: 'seo',
     }),
     defineField({
       name: 'author',

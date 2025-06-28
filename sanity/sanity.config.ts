@@ -6,12 +6,13 @@ import {schemaTypes} from './schemaTypes'
 import {seoMetaFields} from 'sanity-plugin-seo'
 import structure from './structure'
 import {resolve} from './lib/resolve'
-import {theme} from 'https://themer.sanity.build/api/hues?preset=stereofidelic&caution=fbd024;300'
+// import {theme} from 'https://themer.sanity.build/api/hues?preset=stereofidelic&caution=fbd024;300'
+// import {theme} from './theme/theme'
 
 export default defineConfig({
   name: 'default',
   title: 'Astro Full Demo',
-  theme,
+  // theme,
 
   projectId: process.env.SANITY_STUDIO_PROJECT_ID!,
   dataset: process.env.SANITY_STUDIO_DATASET!,

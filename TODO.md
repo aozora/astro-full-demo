@@ -5,8 +5,8 @@
 * i18n
 * add portabletext 
 * add sanity image support
-* code-gen
-* VISUAL EDITOR
+[x] code-gen
+[...] VISUAL EDITOR
 [x] add dynamic render of blocks per page
 [x] add seo
 * add sitemap 

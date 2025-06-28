@@ -1,22 +1,27 @@
 ---
 import { getSecret } from "astro:env/server";
 import type { PropsWithChildren } from "react";
-import {
-  CustomImageType,
-  MetaAttributeType,
-  type MetaTag,
-  MetaTagType,
-  OpenGraph,
-  OpenGraphType,
-  SeoType,
-} from "@/lib/sanity/seo/types";
+// import {
+//   // CustomImageType,
+//   // MetaAttributeType,
+//   type MetaTag,
+//   // MetaTagType,
+//   OpenGraph,
+//   OpenGraphType,
+//   SeoType,
+// } from "@/lib/sanity/seo/types";
 import { SEO } from "astro-seo";
+import type {
+  MetaAttribute,
+  SeoMetaFields,
+} from "@/lib/sanity/codegen/sanity.types";
+import type { MetaTag, OpenGraph } from "../lib/sanity/codegen/sanity.types";
 
 interface Props {
   title: string;
   pageSlug?: string | undefined;
-  pageSeo?: SeoType | undefined;
-  siteSeo: SeoType | undefined;
+  pageSeo?: SeoMetaFields | undefined;
+  siteSeo: SeoMetaFields | undefined;
 }
 
 /**
@@ -24,7 +29,7 @@ interface Props {
  */
 const { title, pageSlug, pageSeo, siteSeo } = Astro.props;
 
-export const getOpenGraph = (args: OpenGraphType) => {
+export const getOpenGraph = (args: OpenGraph) => {
   const { description, image, title, _type, siteName, url } = args;
   const getImage = image ? resolveImage(image) : null;
   const values = {
@@ -38,7 +43,7 @@ export const getOpenGraph = (args: OpenGraphType) => {
   return values as OpenGraph;
 };
 
-export const getMetaAttribute = (attrs: MetaAttributeType[] | undefined) => {
+export const getMetaAttribute = (attrs: MetaAttribute[] | undefined) => {
   if (!attrs) {
     return null;
   }
@@ -57,10 +62,7 @@ export const getMetaAttribute = (attrs: MetaAttributeType[] | undefined) => {
   return obj as unknown as MetaTag;
 };
 
-export const getMetaObjects = (
-  tags: MetaTagType[],
-  allowIndexing?: boolean,
-) => {
+export const getMetaObjects = (tags: MetaTag[], allowIndexing?: boolean) => {
   const tagArray: MetaTag[] = [];
   tags.map((tag) => {
     const excludeTag =

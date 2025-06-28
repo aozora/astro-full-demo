@@ -2,7 +2,7 @@
 import { Image } from "astro:assets";
 import { getNewsLandingPage, getPosts } from "@/lib/sanity/repository";
 import Card from "@/components/Card.astro";
-// import Welcome from "../../components/Welcome.astro";
+import Welcome from "@/components/Welcome.astro";
 import Layout from "@/layouts/Layout.astro";
 
 const posts = await getPosts();

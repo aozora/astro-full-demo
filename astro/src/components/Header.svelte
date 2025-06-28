@@ -1,8 +1,9 @@
 <script lang="ts">
 	import type { MenuItem } from '@/lib/sanity/types.ts';
+	import type { Menu } from '@/lib/sanity/codegen/sanity.types.ts';
 
 	interface Props {
-		menu: Array<MenuItem>;
+		menu: Array<Menu>;
 	}
 
 	let { menu }:Props = $props();
