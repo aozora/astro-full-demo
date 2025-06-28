@@ -1,8 +1,7 @@
 import groq from "groq";
 import { seo } from "@/lib/sanity/queries/seo.query.ts";
-
 export default groq`
-*[_type == "home"][0]{ 
+*[_type == "page" && slug.current == $slug][0]{ 
   _id, 
   ${seo}, 
   title, 

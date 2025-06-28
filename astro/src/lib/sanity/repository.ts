@@ -1,8 +1,9 @@
 import { sanityClient } from "sanity:client";
-import type { PortableTextBlock } from "@portabletext/types";
 import groq from "groq";
 import siteQuery from "@/lib/sanity/queries/site.query.ts";
 import homeQuery from "@/lib/sanity/queries/home.query.ts";
+import postsQuery from "@/lib/sanity/queries/posts.query.ts";
+import postQuery from "@/lib/sanity/queries/post.query.ts";
 import type { Home, Post, Site } from "@/lib/sanity/types.ts";
 
 export async function getSite(): Promise<Site> {
@@ -25,17 +26,24 @@ export async function getHome(): Promise<Home> {
   return home;
 }
 
+export async function getNewsLandingPage(): Promise<Home> {
+  const home = await sanityClient.fetch<Home>(homeQuery, {
+    slug: "news",
+  });
+
+  if (!home) {
+    throw new Error("Home document not found");
+  }
+
+  return home;
+}
+
 export async function getPosts(): Promise<Post[]> {
-  return await sanityClient.fetch(
-    groq`*[_type == "post" && defined(slug.current)] | order(_createdAt desc)`,
-  );
+  return await sanityClient.fetch(postsQuery);
 }
 
 export async function getPost(slug: string): Promise<Post> {
-  return await sanityClient.fetch(
-    groq`*[_type == "post" && slug.current == $slug][0]`,
-    {
-      slug,
-    },
-  );
+  return await sanityClient.fetch(postQuery, {
+    slug,
+  });
 }

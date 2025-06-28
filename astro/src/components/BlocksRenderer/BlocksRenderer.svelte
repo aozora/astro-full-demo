@@ -7,7 +7,7 @@
 
 	let { blocks }: Props = $props();
 
-	console.log({blocks});
+	// console.log({blocks});
 </script>
 
 {#if blocks}

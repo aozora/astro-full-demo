@@ -1,9 +1,9 @@
 ---
 import type { InferGetStaticParamsType } from "astro";
 import { PortableText } from "astro-portabletext";
-import Layout from "../../layouts/Layout.astro";
-import { getPost, getPosts } from "../../lib/sanity/repository";
-import { formatDate, urlFor } from "../../lib/helpers";
+import Layout from "@/layouts/Layout.astro";
+import { getPost, getPosts } from "@/lib/sanity/repository";
+import { formatDate, urlFor } from "@/lib/helpers";
 
 export async function getStaticPaths() {
   const posts = await getPosts();
@@ -19,29 +19,31 @@ const post = await getPost(slug);
 ---
 
 <Layout title={post.title!}>
-  <section class="post">
-    {
-      post.cover ? (
-        <img
-          class="post__cover"
-          src={urlFor(post.mainImage).url()}
-          alt="Cover image"
-        />
-      ) : (
-        <div class="post__cover--none" />
-      )
-    }
-    <div class="post__container">
-      <h1 class="post__title">{post.title}</h1>
-      <p class="post__excerpt">{post.excerpt}</p>
-      <p class="post__date">
-        {formatDate(post._createdAt)}
-      </p>
-      <div class="post__content">
-        <PortableText value={post.body} />
+  <main>
+    <section class="post">
+      {
+        post.cover ? (
+          <img
+            class="post__cover"
+            src={urlFor(post.mainImage).url()}
+            alt="Cover image"
+          />
+        ) : (
+          <div class="post__cover--none" />
+        )
+      }
+      <div class="post__container">
+        <h1 class="post__title">{post.title}</h1>
+        <p class="post__excerpt">{post.excerpt}</p>
+        <p class="post__date">
+          {formatDate(post._createdAt)}
+        </p>
+        <div class="post__content">
+          <PortableText value={post.body} />
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
+  </main>
 </Layout>
 
 <style>
@@ -73,6 +75,7 @@ const post = await getPost(slug);
       margin-top: var(--space-6);
 
       /* Targeting tags in PortableText */
+
       & blockquote {
         border-left: 5px solid var(--black);
         padding-left: var(--space-3);

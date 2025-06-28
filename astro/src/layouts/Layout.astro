@@ -1,6 +1,8 @@
 ---
 // https://docs.astro.build/en/guides/view-transitions/
 import { ClientRouter } from "astro:transitions";
+import { VisualEditing } from "@sanity/astro/visual-editing";
+
 import Seo from "@/components/Seo.astro";
 import Header from "@/components/Header.svelte";
 import Footer from "@/components/Footer.astro";
@@ -15,6 +17,10 @@ interface Props {
 
 const { title, slug, pageSeo }: Props = Astro.props;
 const layoutData = await getSite();
+
+const visualEditingEnabled =
+  import.meta.env.PUBLIC_SANITY_VISUAL_EDITING_ENABLED == "true";
+const token = import.meta.env.SANITY_API_READ_TOKEN;
 ---
 
 <!doctype html>
@@ -41,6 +47,7 @@ const layoutData = await getSite();
     <div class="container">
       <Header menu={layoutData.menu} />
       <slot />
+      <VisualEditing enabled={visualEditingEnabled} token={token} />
       <Footer />
     </div>
   </body>

@@ -1,9 +1,11 @@
 import {defineConfig} from 'sanity'
 import {structureTool} from 'sanity/structure'
+import {presentationTool} from 'sanity/presentation'
 import {visionTool} from '@sanity/vision'
 import {schemaTypes} from './schemaTypes'
 import {seoMetaFields} from 'sanity-plugin-seo'
 import structure from './structure'
+import {resolve} from './lib/resolve'
 import {theme} from 'https://themer.sanity.build/api/hues?preset=stereofidelic&caution=fbd024;300'
 
 export default defineConfig({
@@ -17,6 +19,10 @@ export default defineConfig({
   plugins: [
     structureTool({
       structure,
+    }),
+    presentationTool({
+      resolve,
+      previewUrl: String(process.env.SANITY_STUDIO_URL),
     }),
     visionTool(),
     seoMetaFields(),

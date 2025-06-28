@@ -23,8 +23,6 @@
 	// };
 
 	let { text, alignment, picture } = $props();
-
-	console.log({ alignment });
 </script>
 
 <article class="text-and-medium">

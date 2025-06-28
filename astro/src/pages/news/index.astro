@@ -1,0 +1,16 @@
+---
+import { Image } from "astro:assets";
+import { getNewsLandingPage, getPosts } from "@/lib/sanity/repository";
+import Card from "@/components/Card.astro";
+// import Welcome from "../../components/Welcome.astro";
+import Layout from "@/layouts/Layout.astro";
+
+const posts = await getPosts();
+const pageData = await getNewsLandingPage();
+---
+
+<Layout title={pageData.title} pageSeo={pageData.seo} pageSlug={pageData.slug}>
+  <main>
+    {posts.length ? posts.map((post) => <Card post={post} />) : <Welcome />}
+  </main>
+</Layout>
