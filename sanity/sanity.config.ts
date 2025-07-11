@@ -6,6 +6,7 @@ import {schemaTypes} from './schemaTypes'
 import {seoMetaFields} from 'sanity-plugin-seo'
 import structure from './structure'
 import {resolve} from './lib/resolve'
+import {defaultDocumentNode} from './defaults/defaultDocumentNode'
 // import {theme} from 'https://themer.sanity.build/api/hues?preset=stereofidelic&caution=fbd024;300'
 // import {theme} from './theme/theme'
 
@@ -19,11 +20,20 @@ export default defineConfig({
 
   plugins: [
     structureTool({
+      defaultDocumentNode,
       structure,
     }),
     presentationTool({
       resolve,
-      previewUrl: String(process.env.SANITY_STUDIO_URL),
+      // previewUrl: String(process.env.SANITY_STUDIO_PREVIEW_URL),
+      previewUrl: {
+        initial: String(process.env.SANITY_STUDIO_PREVIEW_URL),
+        previewMode: {
+          enable: '/api/draft-mode/enable',
+          disable: '/api/draft-mode/disable',
+        },
+      },
+      allowOrigins: ['http://localhost:*'],
     }),
     visionTool(),
     seoMetaFields(),

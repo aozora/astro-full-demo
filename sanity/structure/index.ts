@@ -19,10 +19,11 @@ export default (S: StructureBuilder) =>
     .title('Content')
     .items([
       // site settings
-      S.listItem()
-        .title('Site Settings')
-        .icon(FadersIcon)
-        .child(S.documentTypeList(site.name).title('Site Settings')),
+      // ref: https://www.sanity.io/docs/studio/create-a-link-to-a-single-edit-page-in-your-main-document-type-list
+      S.listItem().title('Site Settings').icon(FadersIcon).child(
+        S.document().schemaType('site').documentId('site'),
+        // S.documentTypeList(site.name).title('Site Settings')
+      ),
       S.divider(),
 
       // list of blocks

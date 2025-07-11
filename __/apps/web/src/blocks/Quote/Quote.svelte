@@ -1,1 +1,0 @@
-<blockquote class="quote"></blockquote>

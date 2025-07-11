@@ -21,8 +21,8 @@ importers:
         specifier: ^3.4.1
         version: 3.4.1
       '@astrojs/svelte':
-        specifier: ^7.0.4
-        version: 7.1.0(@types/node@24.0.3)(astro@5.10.1(@types/node@24.0.3)(jiti@2.4.2)(rollup@4.44.0)(sass-embedded@1.89.2)(sass@1.89.2)(typescript@5.8.3)(yaml@2.8.0))(jiti@2.4.2)(sass-embedded@1.89.2)(sass@1.89.2)(svelte@5.34.8)(typescript@5.8.3)(yaml@2.8.0)
+        specifier: 7.1.0
+        version: 7.1.0(@types/node@24.0.3)(astro@5.11.0(@types/node@24.0.3)(jiti@2.4.2)(rollup@4.44.0)(sass-embedded@1.89.2)(sass@1.89.2)(typescript@5.8.3)(yaml@2.8.0))(jiti@2.4.2)(sass-embedded@1.89.2)(sass@1.89.2)(svelte@5.34.8)(typescript@5.8.3)(yaml@2.8.0)
       '@portabletext/svelte':
         specifier: ^3.0.0
         version: 3.0.0(svelte@5.34.8)
@@ -31,7 +31,7 @@ importers:
         version: 2.0.13
       '@sanity/astro':
         specifier: ^3.2.6
-        version: 3.2.6(@emotion/is-prop-valid@1.2.2)(@sanity/client@7.6.0)(@sanity/types@3.95.0(@types/react@19.1.8))(astro@5.10.1(@types/node@24.0.3)(jiti@2.4.2)(rollup@4.44.0)(sass-embedded@1.89.2)(sass@1.89.2)(typescript@5.8.3)(yaml@2.8.0))(react-dom@19.1.0(react@19.1.0))(react-is@19.1.0)(react@19.1.0)(sanity@3.94.2(@emotion/is-prop-valid@1.2.2)(@types/node@24.0.3)(@types/react@19.1.8)(immer@10.1.1)(jiti@2.4.2)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(sass-embedded@1.89.2)(sass@1.89.2)(styled-components@6.1.19(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(typescript@5.8.3)(yaml@2.8.0))(styled-components@6.1.19(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(svelte@5.34.8)(typescript@5.8.3)
+        version: 3.2.6(@emotion/is-prop-valid@1.2.2)(@sanity/client@7.6.0)(@sanity/types@3.95.0(@types/react@19.1.8))(astro@5.11.0(@types/node@24.0.3)(jiti@2.4.2)(rollup@4.44.0)(sass-embedded@1.89.2)(sass@1.89.2)(typescript@5.8.3)(yaml@2.8.0))(react-dom@19.1.0(react@19.1.0))(react-is@19.1.0)(react@19.1.0)(sanity@3.94.2(@emotion/is-prop-valid@1.2.2)(@types/node@24.0.3)(@types/react@19.1.8)(immer@10.1.1)(jiti@2.4.2)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(sass-embedded@1.89.2)(sass@1.89.2)(styled-components@6.1.19(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(typescript@5.8.3)(yaml@2.8.0))(styled-components@6.1.19(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(svelte@5.34.8)(typescript@5.8.3)
       '@sanity/client':
         specifier: ^7.6.0
         version: 7.6.0(debug@4.4.1)
@@ -45,11 +45,11 @@ importers:
         specifier: ^19.1.6
         version: 19.1.6(@types/react@19.1.8)
       astro:
-        specifier: ^5.10.1
-        version: 5.10.1(@types/node@24.0.3)(jiti@2.4.2)(rollup@4.44.0)(sass-embedded@1.89.2)(sass@1.89.2)(typescript@5.8.3)(yaml@2.8.0)
+        specifier: ^5.11.0
+        version: 5.11.0(@types/node@24.0.3)(jiti@2.4.2)(rollup@4.44.0)(sass-embedded@1.89.2)(sass@1.89.2)(typescript@5.8.3)(yaml@2.8.0)
       astro-portabletext:
         specifier: ^0.11.1
-        version: 0.11.1(astro@5.10.1(@types/node@24.0.3)(jiti@2.4.2)(rollup@4.44.0)(sass-embedded@1.89.2)(sass@1.89.2)(typescript@5.8.3)(yaml@2.8.0))
+        version: 0.11.1(astro@5.11.0(@types/node@24.0.3)(jiti@2.4.2)(rollup@4.44.0)(sass-embedded@1.89.2)(sass@1.89.2)(typescript@5.8.3)(yaml@2.8.0))
       astro-seo:
         specifier: ^0.8.4
         version: 0.8.4(prettier-plugin-astro@0.14.1)(prettier@3.6.1)(typescript@5.8.3)
@@ -2501,8 +2501,8 @@ packages:
   astro-seo@0.8.4:
     resolution: {integrity: sha512-Ou1vzQSXAxa0K8rtNtXNvSpYqOGEgMhh0immMxJeXmbVZac3UKCNWAoXWyOQDFYsZvBugCRSg0N1phBqPMVgCw==}
 
-  astro@5.10.1:
-    resolution: {integrity: sha512-DJVmt+51jU1xmgmAHCDwuUgcG/5aVFSU+tcX694acAZqPVt8EMUAmUZcJDX36Z7/EztnPph9HR3pm72jS2EgHQ==}
+  astro@5.11.0:
+    resolution: {integrity: sha512-MEICntERthUxJPSSDsDiZuwiCMrsaYy3fnDhp4c6ScUfldCB8RBnB/myYdpTFXpwYBy6SgVsHQ1H4MuuA7ro/Q==}
     engines: {node: 18.20.8 || ^20.3.0 || >=22.0.0, npm: '>=9.6.5', pnpm: '>=7.1.0'}
     hasBin: true
 
@@ -7028,10 +7028,10 @@ snapshots:
       stream-replace-string: 2.0.0
       zod: 3.25.67
 
-  '@astrojs/svelte@7.1.0(@types/node@24.0.3)(astro@5.10.1(@types/node@24.0.3)(jiti@2.4.2)(rollup@4.44.0)(sass-embedded@1.89.2)(sass@1.89.2)(typescript@5.8.3)(yaml@2.8.0))(jiti@2.4.2)(sass-embedded@1.89.2)(sass@1.89.2)(svelte@5.34.8)(typescript@5.8.3)(yaml@2.8.0)':
+  '@astrojs/svelte@7.1.0(@types/node@24.0.3)(astro@5.11.0(@types/node@24.0.3)(jiti@2.4.2)(rollup@4.44.0)(sass-embedded@1.89.2)(sass@1.89.2)(typescript@5.8.3)(yaml@2.8.0))(jiti@2.4.2)(sass-embedded@1.89.2)(sass@1.89.2)(svelte@5.34.8)(typescript@5.8.3)(yaml@2.8.0)':
     dependencies:
       '@sveltejs/vite-plugin-svelte': 5.1.0(svelte@5.34.8)(vite@6.3.5(@types/node@24.0.3)(jiti@2.4.2)(sass-embedded@1.89.2)(sass@1.89.2)(yaml@2.8.0))
-      astro: 5.10.1(@types/node@24.0.3)(jiti@2.4.2)(rollup@4.44.0)(sass-embedded@1.89.2)(sass@1.89.2)(typescript@5.8.3)(yaml@2.8.0)
+      astro: 5.11.0(@types/node@24.0.3)(jiti@2.4.2)(rollup@4.44.0)(sass-embedded@1.89.2)(sass@1.89.2)(typescript@5.8.3)(yaml@2.8.0)
       svelte: 5.34.8
       svelte2tsx: 0.7.40(svelte@5.34.8)(typescript@5.8.3)
       typescript: 5.8.3
@@ -8668,11 +8668,11 @@ snapshots:
 
   '@sanity/asset-utils@2.2.1': {}
 
-  '@sanity/astro@3.2.6(@emotion/is-prop-valid@1.2.2)(@sanity/client@7.6.0)(@sanity/types@3.95.0(@types/react@19.1.8))(astro@5.10.1(@types/node@24.0.3)(jiti@2.4.2)(rollup@4.44.0)(sass-embedded@1.89.2)(sass@1.89.2)(typescript@5.8.3)(yaml@2.8.0))(react-dom@19.1.0(react@19.1.0))(react-is@19.1.0)(react@19.1.0)(sanity@3.94.2(@emotion/is-prop-valid@1.2.2)(@types/node@24.0.3)(@types/react@19.1.8)(immer@10.1.1)(jiti@2.4.2)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(sass-embedded@1.89.2)(sass@1.89.2)(styled-components@6.1.19(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(typescript@5.8.3)(yaml@2.8.0))(styled-components@6.1.19(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(svelte@5.34.8)(typescript@5.8.3)':
+  '@sanity/astro@3.2.6(@emotion/is-prop-valid@1.2.2)(@sanity/client@7.6.0)(@sanity/types@3.95.0(@types/react@19.1.8))(astro@5.11.0(@types/node@24.0.3)(jiti@2.4.2)(rollup@4.44.0)(sass-embedded@1.89.2)(sass@1.89.2)(typescript@5.8.3)(yaml@2.8.0))(react-dom@19.1.0(react@19.1.0))(react-is@19.1.0)(react@19.1.0)(sanity@3.94.2(@emotion/is-prop-valid@1.2.2)(@types/node@24.0.3)(@types/react@19.1.8)(immer@10.1.1)(jiti@2.4.2)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(sass-embedded@1.89.2)(sass@1.89.2)(styled-components@6.1.19(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(typescript@5.8.3)(yaml@2.8.0))(styled-components@6.1.19(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(svelte@5.34.8)(typescript@5.8.3)':
     dependencies:
       '@sanity/client': 7.6.0(debug@4.4.1)
       '@sanity/visual-editing': 2.15.0(@emotion/is-prop-valid@1.2.2)(@sanity/client@7.6.0)(@sanity/types@3.95.0(@types/react@19.1.8))(react-dom@19.1.0(react@19.1.0))(react-is@19.1.0)(react@19.1.0)(styled-components@6.1.19(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(svelte@5.34.8)(typescript@5.8.3)
-      astro: 5.10.1(@types/node@24.0.3)(jiti@2.4.2)(rollup@4.44.0)(sass-embedded@1.89.2)(sass@1.89.2)(typescript@5.8.3)(yaml@2.8.0)
+      astro: 5.11.0(@types/node@24.0.3)(jiti@2.4.2)(rollup@4.44.0)(sass-embedded@1.89.2)(sass@1.89.2)(typescript@5.8.3)(yaml@2.8.0)
       history: 5.3.0
       react: 19.1.0
       react-dom: 19.1.0(react@19.1.0)
@@ -9771,11 +9771,11 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  astro-portabletext@0.11.1(astro@5.10.1(@types/node@24.0.3)(jiti@2.4.2)(rollup@4.44.0)(sass-embedded@1.89.2)(sass@1.89.2)(typescript@5.8.3)(yaml@2.8.0)):
+  astro-portabletext@0.11.1(astro@5.11.0(@types/node@24.0.3)(jiti@2.4.2)(rollup@4.44.0)(sass-embedded@1.89.2)(sass@1.89.2)(typescript@5.8.3)(yaml@2.8.0)):
     dependencies:
       '@portabletext/toolkit': 2.0.17
       '@portabletext/types': 2.0.13
-      astro: 5.10.1(@types/node@24.0.3)(jiti@2.4.2)(rollup@4.44.0)(sass-embedded@1.89.2)(sass@1.89.2)(typescript@5.8.3)(yaml@2.8.0)
+      astro: 5.11.0(@types/node@24.0.3)(jiti@2.4.2)(rollup@4.44.0)(sass-embedded@1.89.2)(sass@1.89.2)(typescript@5.8.3)(yaml@2.8.0)
 
   astro-seo@0.8.4(prettier-plugin-astro@0.14.1)(prettier@3.6.1)(typescript@5.8.3):
     dependencies:
@@ -9785,7 +9785,7 @@ snapshots:
       - prettier-plugin-astro
       - typescript
 
-  astro@5.10.1(@types/node@24.0.3)(jiti@2.4.2)(rollup@4.44.0)(sass-embedded@1.89.2)(sass@1.89.2)(typescript@5.8.3)(yaml@2.8.0):
+  astro@5.11.0(@types/node@24.0.3)(jiti@2.4.2)(rollup@4.44.0)(sass-embedded@1.89.2)(sass@1.89.2)(typescript@5.8.3)(yaml@2.8.0):
     dependencies:
       '@astrojs/compiler': 2.12.2
       '@astrojs/internal-helpers': 0.6.1

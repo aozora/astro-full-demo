@@ -1,5 +1,4 @@
 <script lang="ts">
-	import type { MenuItem } from '@/lib/sanity/types.ts';
 	import type { Menu } from '@/lib/sanity/codegen/sanity.types.ts';
 
 	interface Props {

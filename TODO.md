@@ -7,6 +7,7 @@
 * add sanity image support
 [x] code-gen
 [...] VISUAL EDITOR
+* previews
 [x] add dynamic render of blocks per page
 [x] add seo
 * add sitemap 
