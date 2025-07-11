@@ -21,7 +21,7 @@ export default (S: StructureBuilder) =>
       // site settings
       // ref: https://www.sanity.io/docs/studio/create-a-link-to-a-single-edit-page-in-your-main-document-type-list
       S.listItem().title('Site Settings').icon(FadersIcon).child(
-        S.document().schemaType('site').documentId('site'),
+        S.document().schemaType('site').documentId('site').title('Site Settings'),
         // S.documentTypeList(site.name).title('Site Settings')
       ),
       S.divider(),
