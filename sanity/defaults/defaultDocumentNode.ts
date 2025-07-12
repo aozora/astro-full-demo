@@ -1,9 +1,9 @@
 import {type DefaultDocumentNodeResolver} from 'sanity/structure'
 import {urlSearchParamPreviewPerspective} from '@sanity/preview-url-secret/constants'
 import {Iframe, UrlResolver} from 'sanity-plugin-iframe-pane'
-import {type SanityDocument} from 'sanity'
 
-// Customise this function to show the correct URL based on the current document and the current studio perspective
+// REF: https://www.sanity.io/plugins/iframe-pane
+
 const getPreviewUrl: UrlResolver = (doc, perspective) => {
   // @ts-ignore
   const url = doc?.slug?.current
@@ -11,7 +11,7 @@ const getPreviewUrl: UrlResolver = (doc, perspective) => {
       `${process.env.SANITY_STUDIO_PREVIEW_URL}/${doc.slug.current}?${urlSearchParamPreviewPerspective}=${perspective.perspectiveStack}`
     : `${process.env.SANITY_STUDIO_PREVIEW_URL}`
 
-  console.log({url})
+  // console.log({url})
   return url
 }
 

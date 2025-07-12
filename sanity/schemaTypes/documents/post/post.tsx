@@ -1,6 +1,6 @@
 import {defineField, defineType} from 'sanity'
 import {NewspaperClippingIcon} from '@phosphor-icons/react/dist/csr/NewspaperClipping'
-import {AutoPreviewPane} from '../../../components/auto-preivew-pane.component'
+import {AutoPreviewPane} from '../../../components/auto-preview-pane.component'
 
 export default defineType({
   name: 'post',
