@@ -4,7 +4,8 @@
   "version": "0.0.1",
   "scripts": {
     "dev": "astro dev",
-    "build": "astro build",
+    "build:production": "PUBLIC_ENV=production astro build",
+    "build:preview": "PUBLIC_ENV=preview astro build",
     "preview": "astro preview",
     "astro": "astro"
   },
@@ -14,6 +15,7 @@
     "@astrojs/rss": "^4.0.12",
     "@astrojs/sitemap": "^3.4.2",
     "@astrojs/svelte": "7.1.0",
+    "@astrojs/vercel": "^8.2.3",
     "@portabletext/svelte": "^3.0.0",
     "@portabletext/types": "^2.0.13",
     "@sanity/astro": "^3.2.10",

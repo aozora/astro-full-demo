@@ -12,7 +12,5 @@
 [x] add seo
 * add sitemap 
 * add rss feed
-* sanity media library (aspects)
 * check redirects
-* manage drafts
 * margin blocks
