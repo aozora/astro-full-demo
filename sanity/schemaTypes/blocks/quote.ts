@@ -5,7 +5,7 @@ export default defineType({
   name: 'quote',
   title: 'Quote',
   type: 'document',
-  icon: QuotesIcon,
+  // icon: <QuotesIcon />,
   fields: [
     defineField({
       name: 'quote',

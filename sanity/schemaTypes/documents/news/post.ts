@@ -1,11 +1,11 @@
 import {defineField, defineType} from 'sanity'
 import {NewspaperClippingIcon} from '@phosphor-icons/react/dist/csr/NewspaperClipping'
-import {AutoPreviewPane} from '../../../components/auto-preview-pane.component'
+import {AutoPreviewPane} from '../../../components/AutoPreviewPane'
 
 export default defineType({
   name: 'post',
   title: 'Post',
-  icon: NewspaperClippingIcon,
+  // icon: NewspaperClippingIcon,
   type: 'document',
   groups: [
     {
@@ -44,7 +44,7 @@ export default defineType({
     }),
     defineField({
       name: 'cover',
-      title: 'Main image',
+      title: 'Cover image',
       type: 'image',
       options: {
         hotspot: true,
@@ -84,7 +84,7 @@ export default defineType({
     },
     prepare(selection) {
       const {title, subtitle, media} = selection
-      console.log({subtitle})
+      // console.log({subtitle})
       return {
         title,
         subtitle: subtitle.current,
@@ -92,16 +92,4 @@ export default defineType({
       }
     },
   },
-
-  // preview: {
-  //   select: {
-  //     title: 'title',
-  //     author: 'author.name',
-  //     media: 'cover',
-  //   },
-  //   prepare(selection) {
-  //     const {author} = selection
-  //     return {...selection, subtitle: author && `by ${author}`}
-  //   },
-  // },
 })

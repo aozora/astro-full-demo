@@ -7,33 +7,38 @@
   "scripts": {
     "dev": "sanity dev",
     "start": "sanity start",
+    "login": "sanity login",
     "build": "sanity build",
     "deploy": "sanity deploy",
     "deploy-graphql": "sanity graphql deploy",
-    "type-gen": "npx sanity schema extract --enforce-required-fields && npx sanity typegen generate"
+    "typegen": "npx sanity schema extract --enforce-required-fields && npx sanity typegen generate"
   },
   "keywords": [
     "sanity"
   ],
   "dependencies": {
     "@phosphor-icons/react": "^2.1.10",
-    "@sanity/client": "^7.6.0",
-    "@sanity/preview-url-secret": "^2.1.12",
-    "@sanity/vision": "^3.95.0",
-    "groq": "^3.95.0",
-    "react": "^19.1",
-    "react-dom": "^19.1",
-    "sanity": "^3.95.0",
+    "@sanity/assist": "^4.4.7",
+    "@sanity/client": "^7.8.1",
+    "@sanity/id-utils": "^1.0.0",
+    "@sanity/preview-url-secret": "^2.1.14",
+    "@sanity/vision": "^4.1.1",
+    "groq": "^4.1.1",
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1",
+    "rxjs": "^7.8.2",
+    "sanity": "^4.1.1",
     "sanity-plugin-iframe-pane": "^3.2.2",
-    "sanity-plugin-seo": "^1.3.0",
-    "styled-components": "^6.1.18"
+    "sanity-plugin-media": "^3.0.4",
+    "sanity-plugin-seo": "^1.3.1",
+    "styled-components": "^6.1.19"
   },
   "devDependencies": {
     "@sanity/eslint-config-studio": "^5.0.2",
-    "@types/react": "^19.1",
-    "eslint": "^9.28",
-    "prettier": "^3.5",
-    "typescript": "^5.8"
+    "@types/react": "^19.1.8",
+    "eslint": "^9.32.0",
+    "prettier": "^3.6.2",
+    "typescript": "^5.8.3"
   },
   "prettier": {
     "semi": false,

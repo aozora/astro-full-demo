@@ -1,10 +1,11 @@
 import {defineArrayMember, defineField, defineType} from 'sanity'
 import {FileIcon} from '@phosphor-icons/react/dist/csr/File'
+import {AutoPreviewPane} from '../../components/AutoPreviewPane'
 
 export default defineType({
   name: 'page',
   title: 'Page',
-  icon: FileIcon,
+  // icon: FileIcon,
   type: 'document',
   groups: [
     {
@@ -56,6 +57,14 @@ export default defineType({
         }),
       ],
     }),
+
+    defineField({
+      type: 'string',
+      name: 'hiddenPreviewField',
+      components: {
+        field: AutoPreviewPane,
+      },
+    }),
   ],
   preview: {
     select: {
@@ -64,7 +73,6 @@ export default defineType({
     },
     prepare(selection) {
       const {title, subtitle} = selection
-      console.log({subtitle})
       return {
         title,
         subtitle: subtitle.current,

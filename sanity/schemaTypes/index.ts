@@ -1,8 +1,9 @@
 import blockContentBasic from './common/blockContentBasic'
 import blockContent from './common/blockContentFull'
-import category from './documents/post/category'
-import post from './documents/post/post'
-import author from './documents/post/author'
+import category from './documents/news/category'
+import news from './documents/news/news'
+import post from './documents/news/post'
+import author from './documents/news/author'
 import menu from './common/menu'
 import site from './documents/site'
 import hero from './blocks/hero'
@@ -19,6 +20,7 @@ export const schemaTypes = [
   hero,
   quote,
   textAndMedium,
+  news,
   post,
   author,
   category,

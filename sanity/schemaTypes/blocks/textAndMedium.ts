@@ -5,13 +5,8 @@ export default defineType({
   name: 'textAndMedium',
   title: 'TextAndMedium',
   type: 'document',
-  icon: ArticleMediumIcon,
+  // icon: <ArticleMediumIcon />,
   fields: [
-    // defineField({
-    //   name: 'text',
-    //   type: 'blockContent',
-    //   // validation: (rule) => rule.required(),
-    // }),
     defineField({
       name: 'text',
       title: 'Text',
@@ -36,6 +31,16 @@ export default defineType({
     defineField({
       name: 'picture',
       type: 'image',
+      options: {
+        hotspot: true,
+      },
+      fields: [
+        {
+          name: 'alt',
+          type: 'string',
+          title: 'Alternative Text',
+        },
+      ],
     }),
   ],
 })

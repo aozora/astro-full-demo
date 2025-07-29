@@ -1,11 +1,10 @@
 import {defineArrayMember, defineField, defineType} from 'sanity'
-import {AutoPreviewPane} from '../../components/AutoPreviewPane'
-import {HouseIcon} from '@phosphor-icons/react/dist/csr/House'
+import {FileIcon} from '@phosphor-icons/react/dist/csr/File'
 
 export default defineType({
-  name: 'home',
-  title: 'Home',
-  // icon: HouseIcon,
+  name: 'news',
+  title: 'News',
+  // icon: FileIcon,
   type: 'document',
   groups: [
     {
@@ -36,6 +35,16 @@ export default defineType({
       group: 'seo',
     }),
 
+    // page cover
+    defineField({
+      name: 'cover',
+      title: 'Cover image',
+      type: 'image',
+      options: {
+        hotspot: true,
+      },
+    }),
+
     // modular page
     defineField({
       name: 'blocks',
@@ -56,14 +65,6 @@ export default defineType({
           type: 'quote',
         }),
       ],
-    }),
-
-    defineField({
-      type: 'string',
-      name: 'hiddenPreviewField',
-      components: {
-        field: AutoPreviewPane,
-      },
     }),
   ],
   preview: {

@@ -35,7 +35,9 @@ export const AutoPreviewPane = () => {
 
     if (!isPreviewActive) {
       if (hasGroupSiblings) {
-        if (groupIndex === 1) {
+        // console.log({groupIndex})
+        if (groupIndex === 1 || groupIndex === 2) {
+          // console.log({isPreviewActive})
           setView('preview')
         }
       } else {

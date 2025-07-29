@@ -5,13 +5,33 @@ import {Iframe, UrlResolver} from 'sanity-plugin-iframe-pane'
 // REF: https://www.sanity.io/plugins/iframe-pane
 
 const getPreviewUrl: UrlResolver = (doc, perspective) => {
-  // @ts-ignore
-  const url = doc?.slug?.current
-    ? // @ts-ignore
-      `${process.env.SANITY_STUDIO_PREVIEW_URL}/${doc.slug.current}?${urlSearchParamPreviewPerspective}=${perspective.perspectiveStack}`
-    : `${process.env.SANITY_STUDIO_PREVIEW_URL}`
+  if (!doc) {
+    console.log(`getPreviewUrl: doc is null`)
+    return undefined
+  }
 
-  // console.log({url})
+  let url
+  // @ts-ignore
+  const slug = doc?.slug?.current
+  const type = doc?._type
+
+  switch (type) {
+    case 'news':
+      url = `${process.env.SANITY_STUDIO_PREVIEW_URL}/news?${urlSearchParamPreviewPerspective}=${perspective.perspectiveStack}`
+      break
+
+    case 'post':
+      url = `${process.env.SANITY_STUDIO_PREVIEW_URL}/news/${slug}?${urlSearchParamPreviewPerspective}=${perspective.perspectiveStack}`
+      break
+
+    case 'page':
+      url = `${process.env.SANITY_STUDIO_PREVIEW_URL}/${slug}?${urlSearchParamPreviewPerspective}=${perspective.perspectiveStack}`
+      break
+
+    default:
+      url = `${process.env.SANITY_STUDIO_PREVIEW_URL}`
+  }
+
   return url
 }
 
@@ -19,6 +39,7 @@ const getPreviewUrl: UrlResolver = (doc, perspective) => {
 export const defaultDocumentNode: DefaultDocumentNodeResolver = (S, {schemaType}) => {
   // Only show preview pane on `movie` schema type documents
   switch (schemaType) {
+    case `home`:
     case `page`:
     case `post`:
       return S.document().views([
